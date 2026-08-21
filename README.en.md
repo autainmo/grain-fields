@@ -9,6 +9,11 @@
 Author: [**autainmo**](https://github.com/autainmo)  
 Social handle: **独自艺人**
 
+<p align="center">
+  <a href="./README.md">简体中文</a> ·
+  <b>English</b> ·
+  <a href="#installation-guide">Get Started</a>
+</p>
 </div>
 
 ---
