@@ -6,13 +6,12 @@
 
 **Visual Skill for Content Zoning · Large-Grain Reconstruction · Color Direction**
 
-<p align="center">
-  <b>简体中文</b> · <a href="./README.en.md">English</a>
-</p>
-
 作者：[**autainmo**](https://github.com/autainmo)  
 社交账号：**独自艺人**
 
+<p align="center">
+  <b>简体中文</b> · <a href="./README.en.md">English</a>
+</p>
 </div>
 
 ---
