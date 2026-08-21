@@ -89,13 +89,13 @@ description: "Use when a user provides an image for Grain Fields reconstruction:
 收到用户图片与要求后，必须按以下顺序执行：
 
 1. 读取 `references/00-style-core.md`，锁定风格不变量。
-2. 按 `references/01-scene-analysis.md` 识别主体、背景内容层、文字安全区和候选颗粒区。
-3. 按 `references/02-transformation.md` 决定哪些内容保留、转译、弱化或禁止修改。
-4. 按 `references/03-art-direction.md` 确定 4 个视觉方案、分区配色、核心大颗粒区域、轮廓线、文字和比例。
-5. 按 `references/04-generation-compiler.md` 将每个方案编译为独立的图像生成指令。
+2. 按 `references/01-scene-analysis.md` 识别主体、背景内容层、文字安全区和候选颗粒区，并形成场景结构化输出。
+3. 按 `references/02-transformation.md` 决定哪些内容保留、转译、弱化或禁止修改，并形成 `transformation_constraints`。
+4. 按 `references/03-art-direction.md` 确定 4 个视觉方案、分区配色、核心大颗粒区域、轮廓线、文字和比例；需要配色、文本或比例预设时，由该文件按需读取 `references/presets-color.md`、`references/presets-text.md`、`references/presets-aspect.md`。
+5. 按 `references/04-generation-compiler.md` 将上游已经确定的内容编译为 4 个独立图像生成指令；编译器不得重新设计方案。
 6. 直接调用图像生成工具，生成 4 张图；不等待二次确认。
-7. 按 `references/05-quality-control.md` 检查每张图。
-8. 若不合格，只修正失败项并重新编译相关指令，再生成对应失败方案。
+7. 按 `references/05-quality-control.md` 检查每张图，并为失败项给出 `repair_target`。
+8. 若不合格，只将失败方案返回 `repair_target` 指向的责任节点（01 / 02 / 03 / 04）定点修正，再重新编译并生成该失败方案；不得无条件重跑整条链或重做已合格方案。
 9. 四张均合格后输出。
 
 流程图：
@@ -111,6 +111,8 @@ description: "Use when a user provides an image for Grain Fields reconstruction:
         ↓
 按 03-art-direction.md 确定最终视觉方案
         ↓
+按需读取 color / text / aspect 预设库
+        ↓
 按 04-generation-compiler.md 编译图像生成指令
         ↓
 直接调用图像生成
@@ -122,9 +124,9 @@ description: "Use when a user provides an image for Grain Fields reconstruction:
     └─────┬─────┘
        是 │ 否
        ↓  ↓
-     输出  定点修正
+     输出  返回责任节点定点修正
             ↓
-       重新编译相关指令
+       重新编译失败方案
             ↓
           再生成
 ```
@@ -136,16 +138,19 @@ description: "Use when a user provides an image for Grain Fields reconstruction:
 1. 用户本轮明确命令；
 2. 用户提供的文本、事实和禁止修改项；
 3. `00-style-core.md` 的风格不变量；
-4. `02-transformation.md` 的保留 / 转译边界；
-5. `03-art-direction.md` 的具体视觉规则；
-6. 预设配色、文本与比例库；
-7. AI 自主判断。
+4. `01-scene-analysis.md` 已确认的主体与场景语义事实；
+5. `02-transformation.md` 的保留 / 转译边界；
+6. `03-art-direction.md` 的具体视觉规则；
+7. 由 `03-art-direction.md` 路由的配色、文本与比例预设；
+8. AI 自主判断。
+
+`04-generation-compiler.md` 只负责表达上游决定，`05-quality-control.md` 只负责验收与返回修正节点；二者不得覆盖上游已经锁定的规则。
 
 只有上层规则未规定时，才允许使用下一层规则补足。
 
 ## 8. 默认执行行为
 
-本 Skill 的默认模式为 **MODE C：一次自动生成多个方案**。
+本 Skill 默认采用**一次自动生成多个方案**的执行模式。
 
 收到有效图片后：
 
@@ -177,7 +182,6 @@ description: "Use when a user provides an image for Grain Fields reconstruction:
 - **方案 2：独立视觉方向 B**——与方案 1 在冷暖、明度、对比和气质上明显不同；
 - **方案 3：独立视觉方向 C**——与前两者再次拉开视觉赛道；
 - **方案 4：原图配色 + 大颗粒**——原配色、构图、主体位置和比例关系不变。
-
 
 方案 1–3 不能只换近似色，也不能只是同一色调的冷暖变体。
 

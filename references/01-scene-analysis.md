@@ -175,7 +175,7 @@
 - 旅行 / 记录；
 - 文学 / 留白。
 
-这些标签供 03-art-direction.md 选择差异化视觉赛道和文本类型。
+这些标签供 `03-art-direction.md` 选择差异化视觉赛道和文本类型。
 
 ## 9. 用户文本与事实字段分析
 
@@ -205,7 +205,7 @@
 - 用户明确指定比例；或
 - 用户明确要求适配某种载体 / 平台；
 
-才从 `03-art-direction.md` 的比例预设库中选择对应比例。
+才记录为 `aspect_ratio_constraint` 并交给 `03-art-direction.md` 处理；如需匹配预设，由 `03-art-direction.md` 按需读取 `presets-aspect.md`。
 
 方案 4 在没有用户明确要求时必须保留原构图和原比例。
 

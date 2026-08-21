@@ -53,7 +53,7 @@
 所有默认四方案都必须发生以下变化：
 
 1. 背景按 `01-scene-analysis.md` 确定的 2–3 个内容区域进行视觉层级化处理。
-2. 选择一个完整背景区域作为核心大颗粒区。
+2. 从 `01-scene-analysis.md` 给出的候选区中选择一个完整背景区域作为核心大颗粒区；最终选择由 `03-art-direction.md` 完成。
 3. 核心颗粒区由细节照片语言转译为大颗粒 / 大网点 / 粗半色调等可见结构。
 4. 主要主体增加外轮廓线，与背景形成视觉分离。
 5. 文字若存在，则按版面关系重新组织层级和位置。
@@ -153,7 +153,7 @@
 
 ### 自动文字
 
-允许从 `03-art-direction.md` 的文本预设库选型并创作：
+自动文字的具体文本类型由 `03-art-direction.md` 负责路由；需要预设时由其读取 `presets-text.md`。可选方向包括：
 
 - 内容型；
 - 打卡型（只能使用已有事实）；
@@ -163,6 +163,8 @@
 - 新闻型；
 - 旅行型；
 - 其他与画面真正匹配的类型。
+
+本文件只规定可变与不可变边界，不在这里完成具体文本选型。
 
 ## 9. 允许的辅助层次
 
@@ -211,3 +213,33 @@
 - **如果**用户未给任何文字，**则**可为每个方案自动创作与其视觉方向匹配的文字。
 - **如果**主体周围是大面积白色 / 极浅色，**则**轮廓线可改为高对比单色；**否则**使用纯白。
 - **如果**用户选择或默认执行方案 4，**则**原配色与原构图必须锁定。
+
+## 12. 转译约束输出给下游
+
+本文件完成后，应把允许与禁止修改的边界整理为 `transformation_constraints`，交给 `03-art-direction.md` 和 `04-generation-compiler.md` 使用：
+
+```text
+transformation_constraints:
+  preserve:
+    subject_identity:
+    subject_structure:
+    subject_pose:
+    scene_relationships:
+    user_locked_content:
+  transform:
+    background_regions:
+    grain_region_requirement:
+    outline_requirement:
+    text_layout_requirement:
+  scheme_1_3:
+    allowed_changes:
+    forbidden_changes:
+  scheme_4:
+    color_lock:
+    composition_lock:
+    subject_position_lock:
+    scene_relationship_lock:
+  forbidden_additions:
+```
+
+该结构只描述边界，不替代 `03-art-direction.md` 的最终艺术指导决策。
