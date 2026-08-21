@@ -30,7 +30,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 | 原图 | Grain Fields 重构 |
 |---|---|
-| ![海岸游乐场原图](assets/showcase/01-coast-amusement-original.jpg) | ![海岸游乐场 Grain Fields 重构](assets/showcase/01-coast-amusement-grain-fields.jpg) |
+| ![海岸游乐场原图](assets/showcase/01-coast-amusement-original.png) | ![海岸游乐场 Grain Fields 重构](assets/showcase/01-coast-amusement-grain-fields.png) |
 
 **重构思路：** 保留摩天轮、游乐设施与海岸结构，把城市建筑群作为大面积颗粒场处理；水面保持相对干净并承担文字区，让密集城市颗粒与开阔水面形成呼吸。主体设施通过浅色轮廓从高密度背景中被重新提取出来。
 
@@ -38,7 +38,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 | 原图 | Grain Fields 重构 |
 |---|---|
-| ![潮间鸟类原图](assets/showcase/02-tide-bird-original.jpg) | ![潮间鸟类 Grain Fields 重构](assets/showcase/02-tide-bird-grain-fields.jpg) |
+| ![潮间鸟类原图](assets/showcase/02-tide-bird-original.png) | ![潮间鸟类 Grain Fields 重构](assets/showcase/02-tide-bird-grain-fields.png) |
 
 **重构思路：** 以水面、礁石和鸟作为三种视觉角色，保留鸟的姿态与逆光轮廓；通过高反差分区与粗颗粒材质概括水面和礁石，使原本复杂的反光转化为更清楚的色块与纹理节奏。
 
@@ -46,7 +46,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 | 原图 | Grain Fields 重构 |
 |---|---|
-| ![樱花与建筑原图](assets/showcase/03-bloom-concrete-original.jpg) | ![樱花与建筑 Grain Fields 重构](assets/showcase/03-bloom-concrete-grain-fields.jpg) |
+| ![樱花与建筑原图](assets/showcase/03-bloom-concrete-original.png) | ![樱花与建筑 Grain Fields 重构](assets/showcase/03-bloom-concrete-grain-fields.png) |
 
 **重构思路：** 花枝作为完整主体保持粉色花朵、黄绿色叶片与枝条结构，并用白色轮廓整体提取；建筑墙面则被转译为大颗粒矿物 / 水磨石式块面，深色窗洞保持相对干净并承担极简文字。
 
@@ -54,7 +54,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 | 原图 | Grain Fields 重构 |
 |---|---|
-| ![乒乓球比赛原图](assets/showcase/04-table-tennis-original.jpg) | ![乒乓球比赛 Grain Fields 重构](assets/showcase/04-table-tennis-grain-fields.jpg) |
+| ![乒乓球比赛原图](assets/showcase/04-table-tennis-original.png) | ![乒乓球比赛 Grain Fields 重构](assets/showcase/04-table-tennis-grain-fields.png) |
 
 **重构思路：** 运动员和球台保持原位置与动作，轮廓线强化竞技主体；大面积场地转为高辨识度粗网点 / 超大半调颗粒场，观众区压暗，广告围挡使用高饱和强调色，让竞技焦点集中到球台附近。
 
@@ -62,7 +62,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 | 原图 | Grain Fields 重构 |
 |---|---|
-| ![水中海鸥原图](assets/showcase/05-gull-ripple-original.jpg) | ![水中海鸥 Grain Fields 重构](assets/showcase/05-gull-ripple-grain-fields.jpg) |
+| ![水中海鸥原图](assets/showcase/05-gull-ripple-original.png) | ![水中海鸥 Grain Fields 重构](assets/showcase/05-gull-ripple-grain-fields.png) |
 
 **重构思路：** 海鸥与倒影保持清晰，围绕涟漪选择完整水域作为颗粒区，把原本连续的水纹重构为大颗粒晶块 / 卵石式单元；外围水面保持柔和干净，使颗粒区像从主体周围自然生长出来，而不是贴在水面上的纹理。
 
