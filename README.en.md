@@ -188,43 +188,43 @@ The following is the current index of color, text, and aspect-ratio presets in t
 ### Color Presets
 > Concise descriptions and selection guidance for each preset are available in [`references/presets-color.md`](references/presets-color.md).
 
-**8.1 Emotion / Atmosphere**
+**Emotion / Atmosphere**
 `Violent Aesthetics`, `Sports Competition`, `Hot-Blooded Youth`, `Cool Restraint`, `Dark Oppression`, `Gentle Whisper`, `Solitary Narrative`, `Compassionate Documentary`, `Glimmer of Hope`, `Romantic Haze`, `Resolute Coldness`, `Calm Healing`, `Ethereal Silence`, `Solemn Gravity`, `Mysterious Unknown`, `Bright and Light`, `Sweet-Cool Contrast`, `Primal Wildness`, `Idealism`, `Emotional Release`, `Quiet Negative Space`, `Suppressed Murmur`, `Bright Optimism`, `Sharp Rationality`, `Soft-Mist Emotion`
 
-**8.2 Era / Retro / Nostalgia**
+**Era / Retro / Nostalgia**
 `Retro Poster`, `News Documentary`, `Newspaper Print`, `Archival Imagery`, `Old Photograph`, `Nostalgic Film`, `Hong Kong Film Look`, `Hong Kong Night Cinema`, `1990s`, `1980s`, `1970s`, `1960s Pop`, `American Retro`, `Soviet-Style Propaganda`, `Old Shanghai`, `Republican-Era Newspaper`, `VHS Tape`, `Photocopier`, `Old Television`, `Polaroid`, `Old Magazine`, `Vintage Movie Poster`, `Projector Film`, `Old Postcard`, `Vintage Record Sleeve`, `Cassette Cover`, `Old Brochure`, `Vintage Package Print`
 
-**8.3 Sports / Competition**
+**Sports / Competition**
 `Extreme Sports`, `Racing Livery`, `Football Stadium`, `Street Basketball`, `Winter Sports`, `Outdoor Technical`, `Adventure Documentary`, `Esports Energy`, `Combat Ring`, `Fresh Marathon`, `Strength Training`, `Sunny Surfing`, `Street Skateboarding`, `Classic Boxing`, `Sneaker Trend`, `Athletics Track`, `Water Sports`, `Off-Road Rally`
 
-**8.4 Technology / Future / Digital**
+**Technology / Future / Digital**
 `Cyber Future`, `Digital Glitch`, `Future Silver Gray`, `Tech Blue`, `Deep Space`, `Acid Visuals`, `Y2K Millennium`, `Holographic Iridescence`, `Interface System`, `Data Visualization`, `Medical Clean`, `Laboratory Cold Light`, `Quantum Cold Purple`, `Robotic Industry`, `Thermal Imaging`, `X-Ray Blue`, `Aerospace`, `Core Data Center`, `Electronic Chips`, `Metaverse`, `AI Neural Network`, `Green Terminal Screen`, `Radar Scan`, `Industrial Warning Tech`
 
-**8.5 City / Industrial / Utility**
+**City / Industrial / Utility**
 `Street Trend`, `Punk Rock`, `Neon Nightwalk`, `Steam Machinery`, `Industrial Hardcore`, `Workwear Utility`, `Military Tactical`, `Architectural Minimalism`, `Architectural Avant-Garde`, `Urban Cool Gray`, `Urban Warm Night`, `City Neon`, `Modern Metropolis`, `Premium Business`, `Parking-Garage Cold Light`, `Concrete Architecture`, `Copper Patina`, `Rusty Metal`, `Subway System`, `Nightclub City`, `Dockside Warehousing`, `Elevated-Road Cool Gray`, `Construction Warning`, `Airport Terminal`
 
-**8.6 Nature / Landform / Material**
+**Nature / Landform / Material**
 `Forest Nature`, `Moss Forest`, `Grassland Blue Sky`, `Quiet Snowfield`, `Mountain Earth`, `Rock and Mineral`, `Volcanic Lava`, `Aurora Iridescence`, `Glacier Blue`, `Ocean Blue-Green`, `Island Sunlight`, `Desert Warmth`, `Wild West`, `Danxia Red Earth`, `Coral Coast`, `Wetland Waterfront`, `Valley Bluestone`, `Salt-Flat White Alkali`, `Rainforest Green`, `High-Plateau Thin Air`, `Hard Island Reef`, `Clay Mineral`, `Jade Veins`, `Desert Mineral Gray`, `Misty Lake Blue`, `Black-Sand Coast`
 
-**8.7 Art / Print / Graphics**
+**Art / Print / Graphics**
 `Screen Printing`, `Woodcut Print`, `Pop Art`, `Comic Printing`, `Editorial Magazine`, `Overprint`, `Halftone Overprint`, `Reduction Print`, `Colored Cut-Paper Collage`, `Iconic Graphics`, `Art Smearing`, `Spray-Paint Graffiti`, `Poster Color Collision`, `Propaganda Layout`, `Paper Collage`, `Dirty Ink`, `Two-Color Print`, `Three-Color Composition`, `Risograph Stencil Print`, `Two-Color Screen Print`, `Monochrome Newspaper with Red Overprint`, `Four-Color Comics`, `Papercut Color Blocks`, `Paper Dyeing`
 
-**8.8 Fashion / Editorial / Premium**
+**Fashion / Editorial / Premium**
 `Fashion Editorial`, `Premium Gray`, `Black-and-White Minimal`, `Off-White Minimal`, `Cool Minimal`, `Dark Minimal`, `Nordic Cool`, `Japanese Clear`, `Korean Cream`, `French Retro`, `Italian Richness`, `British Classic`, `German Rationality`, `Swiss Design`, `Bauhaus`, `Memphis`, `Cream Retro`, `Commercial Display`, `Perfume Advertising`, `Luxury Jewelry`, `Collector Art Book`, `Black-and-Gold Luxury`, `White-and-Gold Luxury`, `Gemstone Luxury`, `Royal Blue and Gold`, `Burgundy Red`, `Midnight Blue`, `Mother of Pearl`
 
-**8.9 Youth / Lightness / Fantasy**
+**Youth / Lightness / Fantasy**
 `Youth Dopamine`, `Candy Sweet-Cool`, `Girlhood Pastels`, `Macaron`, `Cotton Candy`, `Dreamcore`, `Weirdcore`, `Surreal Dream`, `Fairy-Tale Fantasy`, `Enchanted Forest`, `Fantasy Epic`, `Mysticism`, `Gothic Dark`, `Vampire Red`, `Fairy Fluorescence`, `Wandering Amusement Park`, `Childhood Picture Book`, `Milky Cloud`, `Plastic Toys`, `Jelly Transparency`, `Comic Youth`
 
-**8.10 Eastern / Traditional / Cultural**
+**Eastern / Traditional / Cultural**
 `Eastern Cinnabar`, `Eastern Blue-Green`, `Ink-Wash Black and White`, `Colored Ink Wash`, `Dunhuang Murals`, `Song-Dynasty Elegant Colors`, `Tang-Dynasty Rich Colors`, `New Chinese Style`, `Blue-and-White Porcelain`, `Jade Blue-White`, `Ancient-Architecture Vermilion`, `Zen Neutrals`, `Neo-Chinese Neon`, `Opera Splendor`, `Tea-Room Wood Tones`, `Old-Paper Bookish`, `Lacquer Black and Red`, `Porcelain-Glaze Blue-White`, `Miao Embroidery High Color`, `Tibetan Mineral Colors`
 
-**8.11 Method / Zoning / Color Preservation**
+**Method / Zoning / Color Preservation**
 `Local Grayscale Focus`, `Gray-Color Contrast`, `Single-Zone Desaturation`, `Local Cooling`, `Local Warm Compression`, `Main-Zone Fading`, `Color-Gray Narrative`, `Local Muting`, `Focus Color Retention`, `Dual-Zone Temperature Contrast`, `Three-Stage Progression`, `Monochromatic Layering`, `Complementary Collision`, `Analogous Transition`, `High-Contrast Zoning`, `Low-Saturation Zoning`, `Warm Zone with Cool Accent`, `Cool Zone with Warm Accent`, `Light-and-Shadow Color Separation`, `Material Color Separation`, `Spatial Color Separation`, `Emotional Reversal`, `Documentary Desaturation`, `Cinematic Zoning`, `Advertising Zoning`, `Magazine Zoning`, `Exhibition Zoning`, `Old-Paper Color Separation`, `Gray Base with Color Pop`, `Mist Color Separation`, `Theatrical Stage`, `Narrative Acts`, `Natural Neutral`, `Restrained Enhancement`, `Original-Color Preservation Enhancement`, `Single-Zone Grain Enhancement`, `Saturation-Imbalance Reconstruction`, `Single-Zone Inversion Accent`, `Black-and-White Subject / Color Background`, `Color Subject / Gray Background`, `Original-Gamut Compression`, `Original-Gamut Expansion`
 
-**8.12 Travel / Lifestyle / Food / Commercial**
+**Travel / Lifestyle / Food / Commercial**
 `Fresh Travel`, `Urban Travel`, `Road Trip`, `Humanistic Travel`, `Pastoral Nature`, `Caramel Warm Brown`, `Coffee Cinema`, `Amber Warm Light`, `Appetite Warm Colors`, `Fresh Food`, `Coffee Roasting`, `Milk-Tea Shop Poster`, `Convenience-Store Packaging`, `Tropical Poster`, `Beer Malt`, `Tavern Barrel`, `Vintage Tobacco Box`, `Jewelry Window`, `Cosmetics Poster`, `Product Tech`, `Product Trend`, `Product Luxury`
 
-**8.13 Film / Stage / Music**
+**Film / Stage / Music**
 `Movie Trailer`, `Road Movie`, `Art-House Film`, `Suspense Film`, `Crime Film`, `Romance Film`, `Youth Film`, `Epic Film`, `Disaster Film`, `Stage Lighting`, `Music Festival`, `Jazz Night`, `Ballet Stage`, `Rock Live`, `Electronic Music`, `Theater Red Curtain`
 
 ### Text Direction Presets
