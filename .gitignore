@@ -1,0 +1,18 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Local archives / temporary build artifacts
+*.zip
+*.tmp
+*.bak
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local IDE settings
+.vscode/
+.idea/
