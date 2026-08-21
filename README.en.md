@@ -29,7 +29,6 @@ Based on the actual content of the image, it organizes the background into 2–3
 
 ## What Is Grain Fields?
 
-
 ### Aesthetics: Let Grain Become a “Material Field”
 
 Grain Fields does not treat grain as subtle noise or a uniform filter. The core grain region usually occupies about 1/3–1/2 of the image, and may be larger when needed; the grain units themselves must also be large enough to remain clearly visible even at thumbnail size. This creates a contrast of **rough—clean, dense—sparse** against cleaner regions, giving the image strong materiality while preserving breathing room.
@@ -38,9 +37,9 @@ Grain Fields does not treat grain as subtle noise or a uniform filter. The core 
 
 Background zoning follows actual scene elements, spatial layers, materials, and continuous structures. The sea, water, sky, rocks, architecture, walls, vegetation, and ground can each become independent content regions; **a complete subject or continuous scene element will not be forcibly split into multiple zones just for the sake of zoning**. Text areas, subject areas, and grain areas all participate in the overall compositional balance.
 
-### Reconstruction: Preserve the Subject First, Then Choose the Grain Language
+### Reconstruction: Preserve the Subject First, Then Strengthen the Large-Grain Region
 
-People, animals, architecture, mountains, plants, vehicles, objects, and other elements can all serve as the primary subject. The subject preserves its key silhouette, structure, proportions, pose, and identifying information, with a clear contour drawn along its true outer edge. The core grain region can then adopt different large-grain languages, such as **missing print, fuse beads, dreamy blocks, oversized halftone dots, large pixels, broken-tile mosaic, glass blocks, Voronoi cells, and low-poly forms**. Users can specify a preset directly, or let the Skill automatically match one to the image.
+People, animals, architecture, mountains, plants, vehicles, objects, and other elements can all serve as the primary subject. The subject preserves its key silhouette, structure, proportions, pose, and identifying information, with a clear contour drawn along its true outer edge. One complete, continuous background region is then visibly reconstructed with coarse large-grain structure, creating a clear **rough—clean, dense—sparse** contrast with the cleaner parts of the image.
 
 ---
 
@@ -144,7 +143,6 @@ Default behavior:
 
 - Automatically understands the subject and scene;
 - Divides the background into 2–3 complete content-based regions;
-- Automatically selects or follows a specified large-grain reconstruction concept;
 - Directly generates 4 results without waiting for a second confirmation;
 - Concepts 1–3 use clearly different recoloring directions;
 - Concept 4 preserves the original color palette, composition, subject position, and scene relationships;
@@ -157,7 +155,6 @@ Default behavior:
 All fields are optional; delete anything you do not want to control.
 
 ```text
-[Large-grain reconstruction: Auto / Preset name / Specify concepts 1–4 separately]
 [Color direction: Auto / Preset name]
 [Text direction: Auto / Preset name]
 [Aspect ratio / format: Original / Preset name / Custom ratio]
@@ -182,66 +179,11 @@ If no text is supplied and you do not state “No text,” the Skill may automat
 
 Factual information follows strict constraints: location, time, camera model, lens, person identity, event, weather, credit, and similar information must not be fabricated when it has not been provided by the user and cannot be reliably confirmed.
 
-### How to Choose a Large-Grain Concept
-
-- **Auto**: First determines the material direction from 15 large-grain categories, then selects a specific preset based on the selected region’s content, structure, color, and narrative. The four concepts will try to use different grain languages across categories.
-- **Specify one**: For example, `[Large-grain reconstruction: Fuse Beads]`; by default, all four concepts use the fuse-bead language.
-- **Specify several**: For example, `[Large-grain reconstruction: Missing Print / Dreamy Blocks / Fuse Beads / Glass Blocks]`; presets are assigned to the four concepts in order.
-- **Exact mapping**: For example, `Concept 1=Oversized Halftone; Concept 2=Fuse Beads; Concept 3=Voronoi Cells; Concept 4=Missing Print`.
-
 ---
 
 ## Complete Preset Index
 
-The following is the current complete preset-name index in the repository. Concise descriptions, matching logic, and execution rules for each preset are stored in the corresponding reference files. When selecting presets automatically, the Skill reads the detailed libraries rather than relying on model memory.
-
-### Large-Grain Reconstruction Presets
-> Concise descriptions and selection guidance for each preset are available in [`references/presets-grain.md`](references/presets-grain.md).
-
-**1. Print / Ink**
-`Missing Print`, `Missing-Ink Patches`, `Ink Loss / De-inking`, `Skipped Print`, `Residual Print`, `Coarse Halftone Print`, `Oversized Halftone Dots`, `Square Halftone Dots`, `Diamond Halftone Dots`, `Line Screen`, `Two-Color Overprint Grain`, `Registration Offset`, `Screen-Print Ink Loss`, `Coarse Screen-Print Grain`, `Stencil-Print Grain`, `Coarse Riso Grain`, `Rubber-Stamp Missing Print`, `Old-Newspaper Coarse Halftone`, `Ink Buildup`, `Ink-Splatter Blocks`
-
-**2. Pixel / Digital Blocks**
-`Large Pixelation`, `Oversized Pixel Blocks`, `Low-Resolution Pixels`, `Pixel Art Grain`, `8-bit Blocks`, `16-bit Pixel Blocks`, `Pixel Dissolve`, `Pixel Dropout`, `Floating Pixels`, `Pixel Diffusion`, `Pixel Erosion`, `Pixel Reassembly`, `Random Block Sampling`, `Rectangular Sampling Blocks`, `Data-Block Mosaic`, `JPEG Block Compression`, `Video Compression Blocks`, `Digital Dropout Blocks`, `Blocky Glitch`, `Damaged Data Blocks`, `Scan-Error Blocks`
-
-**3. Dreamy / Semi-Transparent Grain**
-`Dreamy Blocks`, `Glass Blocks`, `Frosted Blocks`, `Jelly Blocks`, `Crystal Blocks`, `Ice-Cube Grain`, `Prism Grain`, `Colored-Glass Grain`, `Bokeh Blocks`, `Neon Blocks`, `Fluorescent Grain Blocks`, `Soft-Focus Color-Block Grain`, `Cloud-Mist Blocks`, `Gradient Blocks`, `Iridescent Blocks`, `Milky-Glass Blocks`, `Transparent-Layer Grain`, `Floating Color Blocks`, `Soft/Sharp Grid`, `Glow Grain`
-
-**4. Fuse-Bead / Handmade Grain**
-`Fuse Beads`, `Melted Fuse Beads`, `String-Bead Grain`, `Glass-Bead Collage`, `Wood-Bead Collage`, `Ceramic-Bead Collage`, `Plastic-Bead Grain`, `Pearl Grain`, `Crystal-Bead Grain`, `Sequin Collage`, `Bead-and-Sequin Embroidery`, `Button Collage`, `Building-Block Grain`, `Micro Building Blocks`, `Soft Building Blocks`, `Interlocking Blocks`, `Game-Piece Grain`, `Magnetic-Tile Grain`, `Colored Pushpins`, `Felt-Ball Collage`
-
-**5. Mosaic / Tile**
-`Square-Tile Mosaic`, `Large-Block Mosaic`, `Ceramic Mosaic`, `Glass Mosaic`, `Broken-Ceramic Mosaic`, `Stone Mosaic`, `Pebble Mosaic`, `Byzantine Mosaic`, `Gold-Leaf Mosaic`, `Mirror Mosaic`, `Hexagonal Tiles`, `Triangular Mosaic`, `Random-Polygon Mosaic`, `Broken-Glass Mosaic`, `Stained Glass`, `Glazed-Tile Grain`, `Cracked-Ceramic Assembly`
-
-**6. Paper / Collage Fragments**
-`Torn-Paper Grain`, `Paper Confetti`, `Colored-Paper Collage`, `Newspaper Fragments`, `Magazine Fragments`, `Hand-Cut Paper Blocks`, `Rough-Torn Paper Blocks`, `Pulp Grain`, `Crinkled-Paper Grain`, `Corrugated-Cardboard Fragments`, `Washi-Tape Grain`, `Sticky-Note Blocks`, `Receipt Fragments`, `Stamp Grain`, `Label Collage`, `Photo-Fragment Collage`, `Polaroid Fragments`
-
-**7. Painting / Large Pigment Grain**
-`Impasto Paint Blocks`, `Palette-Knife Blocks`, `Blocky Brushstrokes`, `Large Pointillist Grain`, `Paint Clumps`, `Dry-Brush Missing Blocks`, `Sponge Marks`, `Roller Ink Loss`, `Large Spray-Paint Grain`, `Peeling Paint`, `Crayon Blocks`, `Pastel Blocks`, `Charcoal-Powder Blocks`, `Colored-Pencil Fragments`, `Paint Flakes`
-
-**8. Natural-Material Grain**
-`Coarse Sand Grain`, `Colored-Sand Picture`, `Gravel Grain`, `Stone-Fragment Collage`, `Crystal Grain`, `Salt-Crystal Grain`, `Sugar-Crystal Grain`, `Ice-Crystal Grain`, `Snow-Block Grain`, `Mineral Grain`, `Shell Fragments`, `Coral Fragments`, `Wood-Shaving Grain`, `Bark Fragments`, `Dried-Flower Grain`, `Fallen-Leaf Fragments`, `Seed Grain`, `Cereal Grain`, `Coffee-Bean Grain`, `Cork Grain`
-
-**9. Textile / Fuzzy Grain**
-`Yarn-Ball Grain`, `Coarse-Knit Grain`, `Woven Blocks`, `Felt Blocks`, `Felt Balls`, `Pom-Pom Grain`, `Fabric Fragments`, `Denim Fragments`, `Embroidery Blocks`, `Cross-Stitch Pixels`, `Coarse-Stitch Grain`, `Tassel Fragments`, `Lace Fragments`
-
-**10. Optical / Circular Grain**
-`Large-Dot Grain`, `Polka-Dot Decomposition`, `Bubble Grain`, `Soap-Bubble Grain`, `Droplet Grain`, `Dewdrop Grain`, `Bokeh Grain`, `Hexagonal Bokeh`, `Colored Light Orbs`, `Soft-Light Discs`, `Mirror Discs`, `Milky Discs`, `Layered Transparent Discs`
-
-**11. Geometric Large Grain**
-`Large Squares`, `Rectangular Blocks`, `Rounded Squares`, `Large Discs`, `Oval Grain`, `Triangular Grain`, `Hexagonal Grain`, `Diamond Grain`, `Trapezoid Grain`, `Polygon Grain`, `Low-Poly Blocks`, `Voronoi Cells`, `Delaunay Triangulation`, `Honeycomb Grain`, `Checkerboard Grain`, `Random Grid Grain`, `Stepped Grain`, `Strip Grain`, `Cross Grain`, `Capsule Grain`, `Ring Grain`
-
-**12. Damage / Decay**
-`Peeling Wall Surface`, `Peeling Paint`, `Rust Grain`, `Copper-Oxidation Patches`, `Ablation Grain`, `Burnt-Paper Holes`, `Worm-Eaten Holes`, `Weathered Grain`, `Peeling Plaster`, `Concrete Spalling`, `Cracked Fragments`, `Crazed Blocks`, `Corrosion Holes`
-
-**13. Food / Candy-Like Grain**
-`Gummy Blocks`, `Sugar Cubes`, `Candy Beans`, `Chocolate Blocks`, `Colored Sugar Pearls`, `Marshmallow Blocks`, `Popcorn Grain`, `Cereal Rings`, `Jelly Pieces`, `Rock-Sugar Crystals`, `Chocolate Beans`, `Cookie Fragments`, `Colored Cereal`, `Gummy-Bear Grain`, `Macaron Blocks`, `Icing Grain`
-
-**14. Metal / Industrial Grain**
-`Metal Rivets`, `Nut Grain`, `Washer Grain`, `Metal Discs`, `Perforated-Plate Grain`, `Steel Balls`, `Bearing Balls`, `Mirror-Finish Metal Pieces`, `Brushed-Aluminum Pieces`, `Rusty-Iron Pieces`, `Copper-Sheet Collage`, `Gold-Leaf Fragments`, `Silver-Leaf Fragments`, `Industrial Mesh`, `Perforated-Metal Blocks`, `Metal Shavings`
-
-**15. Special Artistic Grain**
-`Confetti`, `Paper-Flower Grain`, `Mirror Shards`, `Prism Fragments`, `Kaleidoscope Grain`, `Gem Facets`, `Diamond Grain`, `Crystal Fragments`, `Holographic Sequins`, `CD Fragments`, `Acrylic Pieces`, `Resin Blocks`, `Transparent Plastic Pieces`, `Foam Grain`, `Sponge Blocks`, `Polymer-Clay Blocks`, `Plasticine Grain`, `Clay Blocks`, `Building Blocks`, `Puzzle Pieces`, `Playing-Card Fragments`, `Letter Blocks`, `Number Blocks`, `Symbol Blocks`, `QR-Code Grain`, `Text Grain`, `Chinese-Character Blocks`, `Photo-Thumbnail Grain`, `Map Fragments`, `Architectural-Window Grid Grain`
+The following is the current index of color, text, and aspect-ratio presets in the repository.
 
 ### Color Presets
 > Concise descriptions and selection guidance for each preset are available in [`references/presets-color.md`](references/presets-color.md).
@@ -284,7 +226,6 @@ The following is the current complete preset-name index in the repository. Conci
 
 **8.13 Film / Stage / Music**
 `Movie Trailer`, `Road Movie`, `Art-House Film`, `Suspense Film`, `Crime Film`, `Romance Film`, `Youth Film`, `Epic Film`, `Disaster Film`, `Stage Lighting`, `Music Festival`, `Jazz Night`, `Ballet Stage`, `Rock Live`, `Electronic Music`, `Theater Red Curtain`
-
 
 ### Text Direction Presets
 > Concise descriptions and selection guidance for each preset are available in [`references/presets-text.md`](references/presets-text.md).
@@ -333,7 +274,6 @@ The following is the current complete preset-name index in the repository. Conci
 
 **Art / Experimental / Conceptual**
 `Concept Proposition`, `Artwork Title`, `Untitled Style`, `Numbered Artwork`, `Exhibition Proposition`, `Bilingual Art Title`, `English-Word Title`, `Latin-Flavored Title`, `Philosophical Proposition`, `Question Style`, `Rhetorical Question`, `Fragmented Text`, `Keyword Stack`, `Coordinate Numbering`, `System-Log Style`, `Data-Label Style`, `Glitch Text`, `Cipher Text`, `Annotation System`, `Handwritten Annotation`, `Draft Notes`, `Collaged Sentences`, `Flyer Fragment`, `Book Excerpt`, `Dictionary Definition`, `Encyclopedia Entry`, `Footnote Style`, `Quotation Style`, `Quotation-Centered`, `Blank Title`
-
 
 ### Aspect Ratio / Format Presets
 > Concise descriptions and selection guidance for each preset are available in [`references/presets-aspect.md`](references/presets-aspect.md).
@@ -386,7 +326,6 @@ The following is the current complete preset-name index in the repository. Conci
 **Special Composition / Irregular Safe Area**
 `Sticker Composition`, `Stamp Border`, `Framed Photo`, `Folding-Screen Painting`, `Eastern Album Leaf`, `Fan-Shaped Composition`
 
-
 ---
 
 ## Repository Structure
@@ -395,6 +334,7 @@ The following is the current complete preset-name index in the repository. Conci
 grain-fields/
 ├── SKILL.md
 ├── README.md
+├── README.en.md
 ├── LICENSE
 ├── LICENSE.zh-CN.md
 ├── CHANGELOG.md
@@ -407,23 +347,22 @@ grain-fields/
 │   ├── presets-color.md
 │   ├── presets-text.md
 │   ├── presets-aspect.md
-│   ├── presets-grain.md
 │   ├── 04-generation-compiler.md
 │   └── 05-quality-control.md
 ├── agents/
 │   └── openai.yaml
 └── assets/
     └── showcase/
-        ├── 01-coast-amusement-original.jpg
-        ├── 01-coast-amusement-grain-fields.jpg
-        ├── 02-tide-bird-original.jpg
-        ├── 02-tide-bird-grain-fields.jpg
-        ├── 03-bloom-concrete-original.jpg
-        ├── 03-bloom-concrete-grain-fields.jpg
-        ├── 04-table-tennis-original.jpg
-        ├── 04-table-tennis-grain-fields.jpg
-        ├── 05-gull-ripple-original.jpg
-        └── 05-gull-ripple-grain-fields.jpg
+        ├── 01-coast-amusement-original.png
+        ├── 01-coast-amusement-grain-fields.png
+        ├── 02-tide-bird-original.png
+        ├── 02-tide-bird-grain-fields.png
+        ├── 03-bloom-concrete-original.png
+        ├── 03-bloom-concrete-grain-fields.png
+        ├── 04-table-tennis-original.png
+        ├── 04-table-tennis-grain-fields.png
+        ├── 05-gull-ripple-original.png
+        └── 05-gull-ripple-grain-fields.png
 ```
 
 ---
