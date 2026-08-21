@@ -72,7 +72,7 @@ Grain Fields 不把颗粒当作轻微噪声或统一滤镜。核心颗粒区通�
 
 ### Codex
 
-Codex 的用户级 Skills 默认位于 `$CODEX_HOME/skills`，通常是 `~/.codex/skills`。把整个仓库放到该目录，并确保 `SKILL.md` 位于 Skill 根目录即可。
+Codex 的用户级 Skills 默认位于 `$CODEX_HOME/skills`，通常是 `~/.codex/skills`。将整个仓库安装到该目录，并确保 `SKILL.md` 位于 Skill 根目录即可。
 
 **macOS / Linux**
 
@@ -88,19 +88,25 @@ New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
 git clone https://github.com/autainmo/grain-fields.git "$HOME\.codex\skills\grain-fields"
 ```
 
-安装后重新启动 Codex，使 Skill 被重新发现。之后可通过 `$grain-fields` 调用。
+安装完成后重新启动 Codex，确保新 Skill 被发现。之后可通过 `$grain-fields` 调用。
 
-> Codex 也支持通过 Skill Installer 从 GitHub 安装 Skill；若你的 Codex 环境已经提供 `$skill-installer`，可直接让它从本仓库安装。安装目录仍会落在 `$CODEX_HOME/skills` 下。
+> 若 Codex 环境提供 `$skill-installer`，也可以直接在 Codex 中输入：
+>
+> ```text
+> $skill-installer install the skill from https://github.com/autainmo/grain-fields, using the repository root as the skill directory and naming it grain-fields
+> ```
+>
+> 安装位置默认为 `$CODEX_HOME/skills/grain-fields`。
 
 ### 其他支持 Agent Skills / `SKILL.md` 的平台
 
 1. 下载或克隆本仓库；
 2. 保持 `grain-fields/` 目录结构完整；
-3. 将目录放入平台规定的 Skills 路径，或使用平台提供的 GitHub / 本地 Skill 导入功能；
-4. 确保平台能读取根目录 `SKILL.md` 与 `references/`；
-5. 若平台具备图像生成 / 图像编辑能力，即可按 Skill 的四方案流程执行。
+3. 将整个目录放入平台规定的 Skills 路径，或使用平台提供的 GitHub / 本地 Skill 导入功能；
+4. 确保平台能够读取根目录中的 `SKILL.md` 以及配套的 `references/`、`agents/` 等文件；
+5. 若平台具备图像生成 / 图像编辑能力，即可按 Skill 定义的四方案流程执行。
 
-不同平台的 Skills 路径和调用语法可能不同，但不要只复制 `SKILL.md`：`references/` 中保存了分区、预设、生成编译与质量控制规则。
+不同平台的 Skills 路径和调用语法可能不同。安装时应保留整个 `grain-fields/` 目录，不要只复制 `SKILL.md`；`references/`、`agents/` 等配套文件也应一并保留。
 
 ---
 
