@@ -7,7 +7,7 @@
 **Visual Skill for Content Zoning · Large-Grain Reconstruction · Color Direction**
 
 作者：[**autainmo**](https://github.com/autainmo)  
-社交账号：**@独自艺人**
+社交账号：**独自艺人**
 
 </div>
 
