@@ -1,309 +1,178 @@
-# Generation Compiler
+# 04 — Generation compiler
+
+Convert analysis into a short, image-specific generation brief. Long catalogs weaken control.
+
+## Internal design contract
+
+Complete this structure before prompting:
+
+    visual_thesis:
+    source_lock:
+    protected_core:
+    soft_lock:
+    transformable_fields:
+    field_map:
+    effect_relation:
+    effect_topology:
+      origin:
+      direction:
+      density:
+      scale:
+      edge_transition:
+      occlusion:
+    grain_language:
+      mark_family:
+      surface_finish:
+    hierarchy:
+      primary:
+      secondary:
+      tertiary:
+    palette:
+    typography:
+      mode:
+      exact_text:
+      compositional_role:
+    composition:
+    failure_guards:
+
+Do not send the contract verbatim if several fields repeat the same idea.
+
+## Prompt order
+
+Compile in this order:
+
+1. task and source lock;
+2. one-sentence visual thesis;
+3. protected core;
+4. field map;
+5. topology and mark behavior;
+6. mark family and finish;
+7. visual hierarchy;
+8. palette and typography;
+9. composition and crop;
+10. up to four failure guards.
 
-本文件负责把已经确定的场景分析、内容取舍、配色、颗粒区、轮廓线、文字与比例，编译成图像生成模型可直接执行的指令。这里不重新设计方案。
+Aim for roughly 120–220 English words or equivalent concise Chinese. Use concrete spatial language.
 
-## 1. 编译输入
+## Compact template
 
-在开始编译前，必须已经从前序文件获得：
+    Reconstruct the supplied image, preserving [source lock].
+    Visual thesis: [scene-specific relationship and intended reading].
+    Keep [protected core] exact; allow restrained treatment on [soft lock].
+    Build [field count] visual field(s): [field map].
+    The effect [origin, direction, density, scale, transition, occlusion].
+    Use visible coarse [mark family] with a [finish] finish.
+    Reading order: [primary], then [secondary], with [tertiary] kept quiet.
+    Palette: [roles]. Typography: [mode and exact wording, or none].
+    Keep [composition/crop].
+    Avoid [dominant failure guards].
 
-- `main_subject`：主体类型、身份锁定、轮廓、关键细节、关键颜色；
-- `background_regions`：R1–R3 的语义内容与边界；
-- `grain_region`：被选中的完整背景区域；
-- `grain_style`：用户指定或自动选定的大颗粒重构语言；
-- `text_zones`：可用文字区；
-- `scheme_palette`：当前方案的完整分区配色；
-- `outline_rule`：纯白或条件替代色；
-- `user_text` / `user_facts`：用户提供的可用文字与事实；
-- `auto_text`：若需要，已为当前方案确定的自动文案；
-- `aspect_ratio`：默认原比例或用户指定比例；
-- `scheme_id`：1 / 2 / 3 / 4。
+Replace every bracket with source-specific content.
 
-如果其中任何必需项缺失，应回到对应上游文件补齐，不在编译器中猜测。
+## Source-lock language
 
-## 2. 四方案必须独立编译
+Use observable constraints:
 
-不要用一个通用提示词只替换几种颜色。
+- same person, expression, pose, and hand placement;
+- same animal species, head shape, posture, and action;
+- same product silhouette, logo, label, and proportions;
+- same architecture, openings, perspective, and horizon;
+- same group count, spacing, and interaction;
+- same landmark, reflection axis, crop, and camera angle.
 
-每个方案都要形成独立生成指令：
+Do not say only “preserve the subject.”
 
-- 方案 1：独立视觉方向 A；
-- 方案 2：独立视觉方向 B；
-- 方案 3：独立视觉方向 C；
-- 方案 4：原图配色锁定。
+## Field-map language
 
-如果生成工具支持每张图独立 prompt，应使用 4 个 prompt；如果支持批量但不能为每张设置独立 prompt，则分 4 次调用。
+Describe field behavior rather than decorative coverage:
 
-## 3. 指令编译顺序
+- begins at the ball-contact point and fans along the court perspective;
+- follows the reflection axis, breaking into larger cells toward the camera;
+- gathers in the façade modules, then thins across the sky;
+- traces the garment folds while leaving face and hands quiet;
+- occupies negative space around the product with a narrow density falloff;
+- scales down through atmospheric depth toward the horizon.
 
-每个方案按以下顺序组织：
+Avoid phrases such as “fill the background with texture.”
 
-1. **源图锁定**；
-2. **主体锁定**；
-3. **原场景内容关系**；
-4. **2–3 个背景内容区域**；
-5. **该方案完整分区配色**；
-6. **核心大颗粒区域与选定的大颗粒重构语言**；
-7. **其他区域的干净 / 轻纹理关系**；
-8. **主体轮廓线**；
-9. **文字内容与位置**；
-10. **构图 / 比例约束**；
-11. **禁止项**。
+## Variant compilation
 
-模型更容易优先遵守前部约束，因此主体和方案 4 的构图锁定要写在前面。
+First compile a master brief containing the shared:
 
-## 4. 源图锁定模板
+- source lock;
+- thesis;
+- protected core;
+- field map;
+- topology;
+- hierarchy;
+- composition.
 
-编译时用清晰、动作化语言表达：
+Then add one delta per variant:
 
-```text
-以输入图片为唯一内容依据。保持主要主体身份、外形、结构、比例、姿态、朝向、关键材质和识别细节稳定；保留原图中能够说明场景的主要环境元素与空间关系，不凭空添加新的主体、建筑、车辆、动物或事件。
-```
+| Variant | Allowed delta |
+|---|---|
+| A | print/ink finish, sharper grouping, editorial contrast |
+| B | tactile finish, narrower tonal palette, softer transitions |
+| C | one scene-justified experimental behavior |
+| D | source-color lock, finish change without hue redesign |
 
-人物场景额外写：
+Do not rewrite the protected core or effect origin between variants.
 
-```text
-保持人物五官辨识、发型、服装特征、人物数量和原始姿势，不改变人物身份。
-```
+## Negative constraints
 
-建筑场景额外写：
+Use no more than four and target actual risks:
 
-```text
-保持建筑整体轮廓、立面关键结构、层级关系和与周边环境的相对位置，不改变建筑类型。
-```
+- no identity or geometry drift;
+- no uniform full-frame texture;
+- no unrelated literal material objects;
+- no invented or misspelled text;
+- no thick sticker outline;
+- no field that ignores perspective or motion;
+- no merged faces or missing limbs;
+- no effect stronger than the focal anchor.
 
-## 5. 内容分区编译
+Too many negatives dilute the positive design.
 
-不要只写“背景分成 2–3 区”。必须把上游识别到的语义区域写清楚，例如内部格式：
+## Repair patches
 
-```text
-背景按原图内容划分为：
-R1 = [语义内容]；
-R2 = [语义内容]；
-R3 = [语义内容，可选]。
-边界跟随这些景物自身的连续边界，不做机械上下 / 左右切割；同一完整主体不得跨多个区域被人为切断。
-```
+On failure, retain the accepted brief and append one patch.
 
-若只有 2 区，不要虚构 R3。
+### Identity drift
 
-## 6. 分区配色编译
+    Restore the source's exact identity-bearing geometry. Reduce marks across [protected detail] and move the main density to [safer field].
 
-### 6.1 方案 1–3
+### Pasted texture
 
-必须写出每个区域的颜色角色，而不是只写总风格：
+    Rebuild the field from [origin] along [direction]. Vary density and scale with [scene relation]; remove uniform coverage and hard mask edges.
 
-```text
-当前方案为 [配色方向名称]：
-R1 使用 [颜色 / 明度 / 饱和度角色]；
-R2 使用 [颜色 / 明度 / 饱和度角色]；
-R3 使用 [颜色 / 明度 / 饱和度角色]；
-主体的重要固有色 [保留说明]；
-文字使用 [颜色]；
-强调色使用 [颜色，如需要]。
-三方案之间必须有明显不同的综合色逻辑，本方案不受原图背景配色限制。
-```
+### Literal material collage
 
-### 6.2 方案 4
+    Translate [material] into abstract [mark family] and surface finish. Remove recognizable unrelated objects.
 
-必须明确写：
+### Weak hierarchy
 
-```text
-本方案锁定原图综合色与原构图：不得重新配色，不改变主体位置、比例、取景与景物关系。只允许在不改变原综合色的前提下优化质感、饱和度、对比度与清晰度。
-```
+    Make [primary] the first read, [field] the second, and quiet [support area]. Reduce competing contrast elsewhere.
 
-不要再加入会引导模型换色的风格词。
+### Arbitrary region split
 
-## 7. 核心大颗粒区编译
+    Remove the semantic partition. Let one continuous [relation] connect [areas] with a graded transition.
 
-这是最高权重的视觉执行项之一，应使用重复但不冗余的强约束语言。
+### Bad typography
 
-推荐表达：
+    Remove unrequested text, or reproduce only the exact wording “[exact text]” in [real type space].
 
-```text
-将 R[编号] 整个连续区域作为核心大颗粒区。不是局部点缀，而是该完整背景区域整体重构。颗粒单元必须明显偏大，使用粗颗粒、大网点、大尺寸半色调或等效粗印刷颗粒；正常观看时第一眼即可分辨独立颗粒结构。颗粒覆盖该区域的大部分面积，使其成为画面明确的材质块面；禁止弱化为细小噪点、轻胶片颗粒或透明滤镜。保留该区域原有景物的大体轮廓、明暗与空间关系，但将细节概括进粗颗粒结构。
-```
+### Family drift
 
-若上游选择的颗粒区预计占整图 1/3–1/2，可补充：
+    Return to the approved master topology and crop. Change only [finish, palette, or one experimental behavior].
 
-```text
-核心颗粒区应形成约整幅画面三分之一至二分之一的显著视觉面积，条件允许时可更大。
-```
+## Safe fallback
 
-不要为了达到比例跨越完整主体或把无关区域强行并入。
+If two repairs fail:
 
-### 7.1 大颗粒重构语言编译
+- use a surface-following, contour-echo, or depth-fade topology;
+- reduce effect intensity;
+- keep the protected core fully source-faithful;
+- remove optional typography;
+- retain original-color logic.
 
-必须把 `grain_style` 写进当前方案，而不是只写“加颗粒”。
-
-通用格式：
-
-```text
-当前核心颗粒区采用「[大颗粒方案名称]」重构。让该区域整体呈现该方案的离散大单元、材质和边界特征，同时继续保留原区域的大体轮廓、明暗和空间关系。颗粒单元必须大到缩略观看仍清晰可辨，不得退化成普通噪点或泛化的半色调。
-```
-
-若用户明确指定某一预设，名称与核心视觉特征必须保留，不得自动替换成更常见的粗网点。
-
-若为自动选择：
-
-- 每个方案使用上游已经确定的 `grain_style`；
-- 在画面适配的前提下，四案优先形成不同颗粒语言；
-- 不要在编译阶段临时改选，避免四个方案重新趋同。
-
-典型强化词只写与当前方案有关的部分，例如：
-
-- 印刷缺失：大块缺墨、断印、油墨覆盖不完整；
-- 拼豆：尺寸明显的拼豆单元、手工排列、颗粒边界清楚；
-- 梦幻方块：大块半透明 / 柔边色块、层次轻盈；
-- 超大半调：大圆点 / 大网屏、密度随明暗变化；
-- 玻璃方块：较大透光块、折射感、块面边界；
-- 粗砂 / 砾石：大颗粒矿物单元、粗糙实体质感；
-- Voronoi 晶格：大胞状晶格、边界明确、区域连续。
-
-不要一次混入多个互不相干的颗粒语言，除非用户明确要求混合。
-
-## 8. 其他区域编译
-
-为制造呼吸感，应明确：
-
-```text
-其他背景区域保持相对干净，或仅保留轻微纹理；与核心颗粒区形成明显的粗—净、密—疏对比。区域之间通过颜色延续、颗粒逐渐疏化、景物边界或主体遮挡自然衔接，避免像贴上去的独立纹理块。
-```
-
-## 9. 主体轮廓线编译
-
-默认：
-
-```text
-沿主要主体真实外缘添加清晰醒目的纯白色轮廓线。轮廓线粗细根据主体尺寸、轮廓复杂度和背景密度自动调整：必须看得见，但不能吞没主体细节。
-```
-
-如果上游确认主体周围大面积白 / 极浅：
-
-```text
-由于主体周围为大面积白色或极浅色，轮廓线改用当前方案中对比度最高的单一颜色，仍保持清晰、单线、非发光效果。
-```
-
-## 10. 文字编译
-
-### 10.1 用户有文本
-
-- 标题、副标题、正文等尽量原样使用；
-- 允许合理断行；
-- 明确落位到已选文字区；
-- 不让主文字进入高密度大颗粒核心区；
-- 不自动补造事实。
-
-推荐内部格式：
-
-```text
-文字内容必须使用用户提供的以下原文：
-标题：[...]
-副标题：[...]
-正文：[...]
-其他事实字段：[...]
-只显示用户实际提供的字段。根据画面留白做字号和层级安排，不改写事实与核心语义。
-```
-
-### 10.2 用户没有文本
-
-先在 03-art-direction.md 中为当前方案选定最适合的文本类型，再创作短文本。
-
-要求：
-
-- 与当前方案的色彩气质匹配；
-- 与画面内容匹配；
-- 可以四张不同；
-- 不制造具体地点、日期、相机型号、人物身份等事实；
-- 优先短标题 + 短副标题 / 极短正文；
-- 文字放在最合适的干净区域。
-
-### 10.3 用户只提供部分事实
-
-使用已有事实；其余可补充非事实性的内容型、概念型或文学型文字。
-
-例如只有地点和相机：
-
-- 可以使用地点与相机；
-- 不得补具体拍摄日期；
-- 其他方案可以写画面内容标题或文学短句。
-
-## 11. 比例与构图编译
-
-默认：
-
-```text
-保持输入图片原始比例和主要构图，不做无必要裁切。
-```
-
-用户指定比例时：
-
-```text
-适配 [比例名称 / 数值]。优先通过扩展留白、调整文字区和最小必要裁切完成，不改变主体核心结构与场景逻辑。
-```
-
-方案 4 额外：
-
-```text
-在满足用户明确指定比例的前提下，最大限度保持原构图；若用户未指定比例，完全保留原比例。
-```
-
-## 12. 禁止项编译
-
-每个方案末尾使用针对性禁止项，不要堆无关风格词。
-
-至少包含：
-
-```text
-禁止机械几何分区；禁止拆分同一完整主体；禁止细颗粒替代大颗粒；禁止只在边角做小颗粒块；禁止颗粒覆盖主要文字；禁止改变主体身份或关键结构；禁止编造事实；禁止添加无关大型装饰。
-```
-
-方案 1–3 再加：
-
-```text
-禁止三个方案只做近似色微调。
-```
-
-方案 4 再加：
-
-```text
-禁止改变原图主配色、主体位置、构图、取景和主要景物关系。
-```
-
-## 13. 推荐的单方案完整骨架
-
-```text
-[源图与主体锁定]
-[场景与 2–3 个内容区域]
-[当前方案分区配色]
-[指定一个完整大区域作为大颗粒核心区 + 明确大颗粒重构预设]
-[其他区域保持干净 / 轻纹理并形成呼吸]
-[主体纯白轮廓线或条件替代色]
-[文字原文或当前方案自动文本 + 文字区]
-[比例与构图约束]
-[禁止项]
-```
-
-## 14. 四图生成策略
-
-1. 编译 4 个独立完整指令；
-2. 一次或分次调用图像生成；
-3. 每个方案只生成 1 张目标图；
-4. 不先向用户征求二次选择；
-5. 生成后进入 `05-quality-control.md`；
-6. 若某张失败，只修那一张；
-7. 不因某张失败而自动改变其他已经合格方案的方向。
-
-## 15. 定点重编译原则
-
-质检发现问题时，只修改失败模块：
-
-- 颗粒太小 → 只提高颗粒单元尺度与颗粒对比；
-- 颗粒预设不明显 → 强化所选预设的独有单元形态与材质特征，不换预设；
-- 颗粒区太小 → 改选或扩展到完整语义区域；
-- 分区机械 → 重做区域语义描述；
-- 轮廓不明显 → 提升线宽 / 对比；
-- 文字难读 → 换到干净文字区或调整文字色；
-- 三方案太像 → 只重做配色方向；
-- 方案 4 改色 → 强化原色锁定，不改其他规则；
-- 主体失真 → 强化主体锁定，不增加无关风格词。
-
-不要整段重写所有指令，避免修一个问题时破坏已合格部分。
+Source fidelity outranks spectacle.

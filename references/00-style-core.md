@@ -1,114 +1,114 @@
-# Style Core
+# 00 — Style core
 
-## 1. 风格核心命题
+## Visual thesis
 
-真实主体保持稳定，背景按画面实际内容划分为 2–3 个语义完整区域，并在每个方案中选择一整块大区域进行强烈的大颗粒转译，使主体、文字、干净区域与颗粒区域形成清晰而有呼吸感的视觉层级。
+Grain Fields reconstruction makes a relationship already present in the source visible as a field of coarse, legible marks while preserving the image's identity and factual truth.
 
-## 2. 最终视觉身份
+This is a system of authored relationships, not a texture filter.
 
-本 Skill 的视觉身份不是某一种固定“复古”“海报”或“胶片”风格，而是一套稳定的重构结构：
+## Six invariants
 
-- 主体可信、可辨、结构稳定；
-- 背景按内容而不是几何位置分区；
-- 每张图都有一个大面积、整块、粗颗粒视觉区域，并使用明确可识别的大颗粒重构语言；
-- 主体以醒目的外轮廓与背景分离；
-- 方案 1–3 允许重新设计配色并形成彼此不同的视觉赛道；
-- 方案 4 保留原图色彩与构图；
-- 文字若存在，必须进入版面逻辑而不是后贴标签。
+### 1. Source fidelity
 
-## 3. Style Invariants｜风格不变量
+The result must still be unmistakably derived from the supplied image.
 
-以下规则无论主体是人物、动物、建筑、街道、车辆、植物、山川、水面、器物或其他对象，都必须成立：
+Preserve:
 
-1. **主体辨识稳定**：主要主体的身份、类别、外形、结构、比例、姿态或关键辨识细节不得因重构而失真。
-2. **内容分区**：背景必须依据实际景物、空间层次、材质或连续结构归纳为 2–3 个主要区域；不得机械按上下左右切割。
-3. **完整对象不拆分**：同一个完整主体或同一连续景物原则上只能属于一个内容区域，不得为了分区效果强行切断。
-4. **大颗粒必现**：四个默认方案中，每张图都必须存在一个面积明显、连续完整、颗粒单元明显偏大的核心颗粒区域；同时必须落实一种明确的大颗粒重构语言（如印刷缺失、拼豆、梦幻方块、超大半调等），效果不得退化为轻微滤镜。
-5. **主体轮廓分离**：主要视觉主体沿真实外缘增加清晰轮廓线；默认纯白，只有周围大面积白色或极浅色时才换为高对比单色。
-6. **四方案差异**：方案 1–3 必须属于明显不同的视觉配色方向；方案 4 必须保留原图主配色与构图。
-7. **文字服从画面**：文字只在用户提供或自动生成时出现，并根据留白、主体位置和颗粒区位置合理排布；事实信息不得编造。
-8. **粗净对比**：主要颗粒区与其余较干净区域必须形成可观察的粗—净、密—疏差异，使画面有层次与呼吸感。
+- identity-bearing anatomy, silhouette, pose, expression, and gaze;
+- product form, logo geometry, architecture, horizon, perspective, and spatial order;
+- factual text, numbers, signs, symbols, and user-supplied wording;
+- the scene's essential action and object relationships.
 
-## 4. Source Role｜原图角色
+Stylization may simplify surfaces. It must not rewrite facts.
 
-原图在本 Skill 中同时承担以下角色：
+### 2. Relation before region
 
-- **S2 主体摄影保留**：主要主体是最终作品中最可信的来源，优先保留其真实外形、姿态、比例、材质与识别特征。
-- **S3 场景语义地图**：背景中的海、天、地面、建筑、植被、墙体、道路、水面、岩石等实际内容决定分区边界与空间关系。
-- **S4 质感转译底稿**：选定的核心背景区域保留其大体结构与明暗关系，但细节被重新组织为大颗粒 / 大网点 / 粗半色调等视觉结构。
-- **S1 原图整体保留（仅方案 4）**：方案 4 额外把原图主配色、构图、主体位置、比例和景物关系作为强锁定条件。
+Find the relation that makes the scene specific:
 
-## 5. 原图与重构关系
+- motion radiating from an action;
+- reflections connecting subject and surface;
+- perspective lines organizing depth;
+- repeated windows, seats, leaves, waves, lights, or bodies;
+- light separating planes;
+- contours echoing a silhouette;
+- negative space isolating an anchor;
+- material transitions revealing structure.
 
-### 必须保留
+Build fields from that relation. A field may follow one surface, pass through several related surfaces, or occupy negative space. Never force two or three arbitrary semantic zones.
 
-- 主体身份或类别；
-- 关键外形、结构、比例、姿态；
-- 主体与环境的基本空间关系；
-- 能说明场景的关键环境元素；
-- 用户明确要求保留的文字、事实、构图或颜色。
+### 3. Coarse marks with readable behavior
 
-### 必须发生变化
+The mark family must remain perceptible when the image is viewed small. Marks may be dots, patches, chips, strokes, cells, tiles, pixels, fibers, apertures, or ink gaps.
 
-- 背景被归纳为 2–3 个内容区域；
-- 每个方案至少一个完整背景区域被重构为显著大颗粒区域，并落实已选的大颗粒预设或等效用户指定语言；
-- 主要主体获得轮廓线；
-- 方案 1–3 的背景色彩关系被重新设计；
-- 文字若存在，需要进入版式关系。
+Their behavior must be designed:
 
-### 仅方案 4 不得变化
+- origin;
+- direction;
+- density;
+- scale;
+- edge transition;
+- occlusion.
 
-- 原图整体主配色；
-- 原构图；
-- 主体位置与整体比例关系；
-- 原场景中主要景物的相对位置。
+Random scatter is not a topology.
 
-## 6. 标志性视觉特征
+### 4. Hierarchy
 
-- 一个面积大且连续完整的粗颗粒区域，并具有明确可辨的大颗粒材质语言；
-- 颗粒在正常观看尺寸下可明显辨认，不是微噪声；
-- 背景分区来自内容本身，边界有语义理由；
-- 主要主体具有清晰外轮廓；
-- 大颗粒区与干净区存在明显材质反差；
-- 三个重新配色方案具有真正不同的色彩叙事；
-- 第四方案体现“原图色彩 + 同一重构语言”。
+Every output needs:
 
-## 7. 信息密度
+- a primary anchor recognized first;
+- a secondary field that explains the transformation;
+- a quiet support level that prevents full-frame noise.
 
-- 画面应优先保持一个明确主视觉焦点。
-- 背景分区数量固定为 2–3 个主要区域，避免切碎。
-- 核心颗粒区只选择一个主要区域，避免多个区域都做同强度颗粒导致拥挤。
-- 文字信息以必要层级为限；用户提供什么就合理展示什么，不强制补齐所有字段。
-- 自动生成文字时，优先短标题、短副标题、短正文或少量信息字段，而不是大段说明。
+The effect must strengthen the reading order. If the texture becomes the subject and the meaning becomes background, the reconstruction has failed.
 
-## 8. 留白逻辑
+### 5. Coherence
 
-- 留白不是空缺，而是用于分隔主体、文字和颗粒区的视觉缓冲。
-- 主要文字优先落在相对干净、可读性高的区域。
-- 核心颗粒区应尽量避开主要文字。
-- 若主体已经占据大面积画面，颗粒区应选择不破坏主体轮廓的连续背景区。
-- 若背景很满，应通过降低其他区域纹理强度制造呼吸，而不是继续添加装饰。
+The effect and the source must share geometry, motion, light, perspective, material logic, or contour. A material finish is acceptable only when it follows the chosen topology.
 
-## 9. 风格强度
+Reject pasted masks, wallpaper overlays, arbitrary region fills, and literal object collages unrelated to the scene.
 
-- 主体保留强度：高。
-- 背景重构强度：中高至高。
-- 核心颗粒区强度：高，必须第一眼可见。
-- 其他背景区纹理强度：低至中。
-- 文字装饰强度：随画面而定，但不得压过主体和颗粒结构。
-- 方案 1–3 的配色变化强度：中高，可脱离原图综合色。
-- 方案 4 的配色变化强度：零，仅允许质感、对比、清晰度等不改变综合色关系的优化。
+### 6. Controlled separation
 
-## 10. Hard Avoids｜绝对禁止项
+Separate the anchor from the field only when needed. Options include:
 
-- 机械二等分、三等分画面来冒充内容分区；
-- 将同一人物、同一建筑、同一连续山体、同一车辆等硬拆成多个区域；
-- 颗粒区域过小、只在边角出现、只做成淡噪点，或名义上选择了某种大颗粒预设却没有在结果中形成对应的可见结构；
-- 所有背景区都同样粗糙，失去粗净反差；
-- 大颗粒覆盖主文字造成阅读困难；
-- 主体轮廓线消失、过细到不可见或粗到吞没主体细节；
-- 方案 1–3 只是同一配色的轻微变化；
-- 方案 4 改变原图综合色、主要构图或主体位置；
-- 为制造艺术感而改掉人物身份、动物种类、建筑结构、器物形态等核心特征；
-- 自动编造用户未给出的事实信息；
-- 以“复古”“高级”“海报”等模糊标签代替可执行规则。
+- local value contrast;
+- chromatic contrast;
+- a restrained dark or light keyline;
+- a narrow quiet halo;
+- density falloff;
+- sharper local detail;
+- controlled overlap.
+
+A white outline is one option, not a signature requirement.
+
+## Reconstruction spectrum
+
+Choose the lightest transformation that makes the thesis clear:
+
+1. restrained — source-dominant, sparse field;
+2. balanced — source and field share attention;
+3. assertive — strong field, protected identity;
+4. abstracted — only when requested, with critical anchors retained.
+
+Default to balanced.
+
+## What is not Grain Fields
+
+- a uniform halftone over the whole image;
+- unrelated stones, tiles, flowers, food, or objects pasted into a shape;
+- a mandatory foreground/background split;
+- decorative noise without origin or direction;
+- an attractive redesign that no longer preserves the source;
+- four unrelated posters sharing only a title.
+
+## Decision test
+
+Before generation, answer:
+
+1. What must remain exact?
+2. Which scene relationship is being amplified?
+3. Where does the field originate and how does it move?
+4. Why is this mark family appropriate?
+5. What should the viewer notice first, second, and last?
+
+If any answer is generic, return to scene analysis.
