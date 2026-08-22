@@ -1,4 +1,4 @@
 interface:
   display_name: "颗粒分域 · Grain Fields"
-  short_description: "Scene-driven grain reconstruction for coherent image variants"
-  default_prompt: "Use $grain-fields to reconstruct this image through a scene-driven grain field, preserve identity-critical content, and return visually validated coherent variants."
+  short_description: "场景关系驱动的通用大颗粒图像重构与四套明显差异化配色方案"
+  default_prompt: "使用 $grain-fields 重构这张图片，默认用简体中文说明方案，生成三套配色与颗粒语言明显不同的新方向，并加一套保留原图配色的方案。"

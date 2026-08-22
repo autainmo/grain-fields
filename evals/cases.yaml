@@ -1,4 +1,4 @@
-version: "2.0"
+version: "2.0.1"
 purpose: "Representative acceptance cases for scene-driven Grain Fields reconstruction"
 global_hard_gates:
   - identity_and_geometry
@@ -6,7 +6,26 @@ global_hard_gates:
   - visible_relation_and_topology
   - integrated_coarse_grain
   - exact_text_and_facts
+  - default_simplified_chinese_output
+  - recolored_variant_separation
   - variant_family_coherence
+
+default_output_contract:
+  user_facing_language: "zh-CN"
+  automatic_in_image_text_language: "zh-CN"
+  exact_source_and_user_text: "preserve_original_language"
+  variants_1_to_3:
+    dominant_hue_families: "not_all_same"
+    pairwise_color_difference: "at_least_two_of_hue_temperature_value_saturation"
+    grain_language: "recognizably_distinct_at_thumbnail"
+  variant_4:
+    palette: "preserve_source_color_identity"
+  shared_across_variants:
+    - source_lock
+    - protected_core
+    - primary_scene_relation
+    - focal_hierarchy
+    - crop
 
 cases:
   - id: regression_coast_city
@@ -134,3 +153,12 @@ cases:
     protected: [defining_geometry, alignment, color_roles, void]
     expected: "The reconstruction preserves formal ratios and uses marks to clarify rhythm."
     reject: [invented_subject, lost_negative_space, arbitrary_photorealism]
+
+  - id: chinese_language_and_palette_divergence
+    mode: contract_regression
+    source_shape: "generic supplied image with no requested language and no fixed palette"
+    content_class: cross_category
+    candidate_relations: [choose_from_source]
+    protected: [source_identity, factual_text, exact_user_text]
+    expected: "Variant labels and optional automatic image text use Simplified Chinese; variants 1–3 have three visibly different color identities and grain-language packages; variant 4 preserves source colors."
+    reject: [english_default_labels, english_automatic_headline, translated_source_text, near_duplicate_recolor_triplet, recolored_variant_4]
