@@ -1,0 +1,136 @@
+version: "2.0"
+purpose: "Representative acceptance cases for scene-driven Grain Fields reconstruction"
+global_hard_gates:
+  - identity_and_geometry
+  - coherent_thesis_and_hierarchy
+  - visible_relation_and_topology
+  - integrated_coarse_grain
+  - exact_text_and_facts
+  - variant_family_coherence
+
+cases:
+  - id: regression_coast_city
+    mode: regression_asset
+    asset: assets/showcase/01-coast-amusement-original.png
+    content_class: landscape_cityscape
+    candidate_relations: [repetition, geometry, depth]
+    protected: [coastline, landmark_geometry, horizon, perspective]
+    expected: "Urban repetition and coastal depth form the field without requiring a discrete foreground subject."
+    reject: [uniform_texture, invented_buildings, arbitrary_region_split]
+
+  - id: regression_tide_bird
+    mode: regression_asset
+    asset: assets/showcase/02-tide-bird-original.png
+    content_class: animal_landscape
+    candidate_relations: [light, material, depth]
+    protected: [bird_identity, pose, shallow_water_geometry]
+    expected: "Tonal and material fields amplify the tide surface while the bird remains recognizable."
+    reject: [literal_nature_collage, sticker_outline, identity_drift]
+
+  - id: regression_bloom_concrete
+    mode: regression_asset
+    asset: assets/showcase/03-bloom-concrete-original.png
+    content_class: architecture
+    candidate_relations: [structural_repetition, material, organic_growth]
+    protected: [facade_perspective, openings, structural_edges]
+    expected: "Constructed and organic rhythms share the architectural field without flattening space."
+    reject: [pasted_flowers, broken_perspective, wallpaper_effect]
+
+  - id: regression_table_tennis
+    mode: regression_asset
+    asset: assets/showcase/04-table-tennis-original.png
+    content_class: sport
+    candidate_relations: [motion, impact, perspective]
+    protected: [athlete_count, anatomy, ball, rackets, table_geometry]
+    expected: "The field originates at the action center and follows court perspective."
+    reject: [missing_ball, merged_athletes, directionless_energy]
+
+  - id: regression_gull_ripple
+    mode: regression_asset
+    asset: assets/showcase/05-gull-ripple-original.png
+    content_class: animal_reflection
+    candidate_relations: [radial_motion, reflection, water_flow]
+    protected: [gull_identity, pose, ripple_origin, reflection_axis]
+    expected: "A radial wake connects to the vertical reflection through controlled density and scale."
+    reject: [random_pebbles, bird_drift, disconnected_reflection]
+
+  - id: portrait_clean_background
+    mode: synthetic_brief
+    source_shape: "single waist-up portrait against a quiet wall"
+    content_class: portrait
+    candidate_relations: [contour, gaze, negative_space, light]
+    protected: [face, expression, hands, hairline]
+    expected: "The field reinforces gaze or contour while the face remains mostly quiet."
+    reject: [facial_texture_replacement, mandatory_poster_text, thick_white_outline]
+
+  - id: group_event
+    mode: synthetic_brief
+    source_shape: "six people in two depth rows at an indoor event"
+    content_class: group
+    candidate_relations: [repetition, spacing, shared_gesture, depth]
+    protected: [face_count, individual_faces, body_topology, interaction]
+    expected: "Marks organize spacing and depth without merging people."
+    reject: [missing_person, merged_faces, uniform_full_frame_coverage]
+
+  - id: running_dog
+    mode: synthetic_brief
+    source_shape: "dog running across grass with kicked-up dust"
+    content_class: animal_action
+    candidate_relations: [motion, trajectory, contour, particles]
+    protected: [head, species_markers, leg_pose, ground_contact]
+    expected: "The field starts at ground contact and trails with movement."
+    reject: [wrong_species, extra_legs, effect_detached_from_action]
+
+  - id: mountain_weather
+    mode: synthetic_brief
+    source_shape: "wide mountain landscape with layered fog and no person"
+    content_class: landscape
+    candidate_relations: [depth, horizon, weather_flow, light]
+    protected: [ridgeline, horizon, depth_order]
+    expected: "Depth-fade or flow topology turns weather layers into the anchor system."
+    reject: [invented_foreground_subject, flat_depth, random_region_quota]
+
+  - id: product_white
+    mode: synthetic_brief
+    source_shape: "single labeled bottle on a white seamless background"
+    content_class: product
+    candidate_relations: [silhouette, reflection, shadow, negative_space]
+    protected: [bottle_geometry, cap, logo, exact_label_text]
+    expected: "A restrained field uses shadow, reflection, or negative space without changing the product."
+    reject: [label_misspelling, product_redesign, literal_material_objects]
+
+  - id: interior_perspective
+    mode: synthetic_brief
+    source_shape: "living room with strong floor and ceiling perspective"
+    content_class: interior
+    candidate_relations: [perspective, planes, light, repetition]
+    protected: [vanishing_logic, openings, furniture_topology]
+    expected: "Structural-grid or depth-fade marks preserve spatial circulation."
+    reject: [flattened_room, warped_openings, decorative_mosaic_mask]
+
+  - id: food_still_life
+    mode: synthetic_brief
+    source_shape: "ceramic bowl, fruit, folded napkin, and directional window light"
+    content_class: still_life
+    candidate_relations: [material, light, stacking, shadow]
+    protected: [object_count, bowl_geometry, food_identity]
+    expected: "Surface and shadow relations create the field without replacing food with invented objects."
+    reject: [extra_food, candy_collage, lost_object_boundaries]
+
+  - id: busy_night_street
+    mode: synthetic_brief
+    source_shape: "crowded night street with signs, vehicles, reflections, and depth"
+    content_class: city_action
+    candidate_relations: [perspective, repetition, reflection, light]
+    protected: [pedestrian_count_logic, vehicle_geometry, factual_signs, road_direction]
+    expected: "Multiple fields share one perspective system and keep factual signage stable."
+    reject: [pseudo_text, merged_people, all_over_neon_noise]
+
+  - id: abstract_composition
+    mode: synthetic_brief
+    source_shape: "asymmetric geometric composition with three colors and a large quiet void"
+    content_class: abstract
+    candidate_relations: [proportion, rhythm, color_adjacency, negative_space]
+    protected: [defining_geometry, alignment, color_roles, void]
+    expected: "The reconstruction preserves formal ratios and uses marks to clarify rhythm."
+    reject: [invented_subject, lost_negative_space, arbitrary_photorealism]
