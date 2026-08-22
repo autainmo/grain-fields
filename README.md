@@ -1,6 +1,11 @@
-<p>
 <div align="center">
-  
+
+<p>
+  <b>简体中文</b> ·
+  <a href="./README.en.md">English</a> ·
+  <a href="#安装指南">开始使用</a>
+</p>
+
 # 颗粒分域 · Grain Fields
 
 **让画面在分域中重新呼吸，让一块景物先长成颗粒。**
@@ -10,10 +15,6 @@
 作者：[**autainmo**](https://github.com/autainmo)  
 社交账号：**独自艺人**
 
-  <b>简体中文</b> ·
-  <a href="./README.en.md">English</a> ·
-  <a href="#安装指南">开始使用</a>
-</p>
 </div>
 
 ---
