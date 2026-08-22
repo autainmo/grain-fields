@@ -1,18 +1,41 @@
-# 04 — Generation compiler
+# 04 — 生成编译器
 
-Convert analysis into a short, image-specific generation brief. Long catalogs weaken control.
+把分析结果编译为简短、具体、逐方案独立的图像提示词。不要把规则目录直接复制给图像模型。
 
-## Internal design contract
+## 语言契约
 
-Complete this structure before prompting:
+- 面向用户的方案名称、说明和结果标签默认使用简体中文。
+- 自动创作的画面标题、副标题和装饰文字默认使用简体中文。
+- 用户指定其他语言时覆盖默认语言。
+- 原图文字、品牌、数字和用户准确文案保持原文。
+- 内部提示词可使用最利于生成的语言，但 typography.exact_text 必须写成最终应渲染的准确字符串。
 
-    visual_thesis:
+## 共享场景契约
+
+四套方案先共同确定：
+
     source_lock:
     protected_core:
     soft_lock:
-    transformable_fields:
+    scene_relation:
+    visual_thesis:
+    hierarchy:
+      primary:
+      secondary:
+      tertiary:
+    composition:
+    factual_text:
+    user_language:
+
+四套共享的是源图、保护边界、主要场景关系、焦点顺序、构图和事实，不共享固定配色、固定颗粒或固定拓扑。
+
+## 单方案设计契约
+
+为每套方案分别完成：
+
+    variant_id:
+    variant_label_zh:
     field_map:
-    effect_relation:
     effect_topology:
       origin:
       direction:
@@ -23,156 +46,170 @@ Complete this structure before prompting:
     grain_language:
       mark_family:
       surface_finish:
-    hierarchy:
-      primary:
-      secondary:
-      tertiary:
     palette:
+      dominant_hue_family:
+      temperature:
+      value_key:
+      saturation:
+      support_color:
+      accent_color:
+      quiet_neutral:
     typography:
       mode:
+      language:
       exact_text:
       compositional_role:
-    composition:
+    difference_from_other_variants:
     failure_guards:
 
-Do not send the contract verbatim if several fields repeat the same idea.
+## 四方案差异矩阵
 
-## Prompt order
+生成前必须先完成矩阵：
 
-Compile in this order:
+| 方案 | 主色家族 | 冷暖 | 明度基调 | 饱和度 | 拓扑 | 颗粒单位 | 表面质感 | 文字 |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 明确填写 | 明确填写 | 明确填写 | 明确填写 | 独立选择 | 独立选择 | 独立选择 | 简体中文或准确原文 |
+| 2 | 明确填写 | 明确填写 | 明确填写 | 明确填写 | 独立选择 | 独立选择 | 独立选择 | 简体中文或准确原文 |
+| 3 | 明确填写 | 明确填写 | 明确填写 | 明确填写 | 独立选择 | 独立选择 | 独立选择 | 简体中文或准确原文 |
+| 4 | 原图锁定 | 原图锁定 | 原图锁定 | 原图锁定 | 场景适配 | 场景适配 | 场景适配 | 简体中文或准确原文 |
 
-1. task and source lock;
-2. one-sentence visual thesis;
-3. protected core;
-4. field map;
-5. topology and mark behavior;
-6. mark family and finish;
-7. visual hierarchy;
-8. palette and typography;
-9. composition and crop;
-10. up to four failure guards.
+方案 1–3 的硬条件：
 
-Aim for roughly 120–220 English words or equivalent concise Chinese. Use concrete spatial language.
+- 三套主色家族不能全部相同；
+- 任意两套至少在色相家族、冷暖、明度基调、饱和度中的两个维度明显不同；
+- 三套颗粒语言必须能从缩略图直接区分；
+- 不能把同一提示词只替换颜色名称后重复使用；
+- 差异必须来自完整艺术方向，而不是微弱滤镜偏色。
 
-## Compact template
+如果矩阵无法满足，先重新设计，禁止进入生成。
 
-    Reconstruct the supplied image, preserving [source lock].
-    Visual thesis: [scene-specific relationship and intended reading].
-    Keep [protected core] exact; allow restrained treatment on [soft lock].
-    Build [field count] visual field(s): [field map].
-    The effect [origin, direction, density, scale, transition, occlusion].
-    Use visible coarse [mark family] with a [finish] finish.
-    Reading order: [primary], then [secondary], with [tertiary] kept quiet.
-    Palette: [roles]. Typography: [mode and exact wording, or none].
-    Keep [composition/crop].
-    Avoid [dominant failure guards].
+## 配色方向选择
 
-Replace every bracket with source-specific content.
+根据源图选择三个互不重叠的策略，不固定具体颜色：
 
-## Source-lock language
+- 高对比或互补方向；
+- 邻近色、低饱和或材质色调方向；
+- 分裂互补、双色、强冷暖反转或其他场景适配的实验方向。
 
-Use observable constraints:
+不得让三套都成为：
 
-- same person, expression, pose, and hand placement;
-- same animal species, head shape, posture, and action;
-- same product silhouette, logo, label, and proportions;
-- same architecture, openings, perspective, and horizon;
-- same group count, spacing, and interaction;
-- same landmark, reflection axis, crop, and camera angle.
+- 相同主色的深浅变化；
+- 全部冷暗或全部暖暗；
+- 相同背景色加不同点缀色；
+- 同一双色组合的比例微调。
 
-Do not say only “preserve the subject.”
+方案 4 不参与新配色竞争，锁定原图主要色相、冷暖、明度关系和材质识别。
 
-## Field-map language
+## 提示词顺序
 
-Describe field behavior rather than decorative coverage:
+每套方案按以下顺序编译：
 
-- begins at the ball-contact point and fans along the court perspective;
-- follows the reflection axis, breaking into larger cells toward the camera;
-- gathers in the façade modules, then thins across the sky;
-- traces the garment folds while leaving face and hands quiet;
-- occupies negative space around the product with a narrow density falloff;
-- scales down through atmospheric depth toward the horizon.
+1. 重构任务与源图锁定；
+2. 共享场景命题；
+3. 保护核心；
+4. 本方案视觉场；
+5. 本方案拓扑与颗粒行为；
+6. 本方案颗粒单位与质感；
+7. 本方案配色角色；
+8. 焦点顺序；
+9. 文字模式、准确文字和语言；
+10. 构图与最多四项失败防护。
 
-Avoid phrases such as “fill the background with texture.”
+建议长度约为 120–220 个英文词或等量简洁中文。使用具体空间描述。
 
-## Variant compilation
+## 中文紧凑模板
 
-First compile a master brief containing the shared:
+    重构所提供的图片，严格保留[源图锁定]。
+    场景命题：[场景关系和观看顺序]。
+    [保护核心]保持准确；[柔性锁定区]只接受克制处理。
+    本方案建立[视觉场说明]。
+    效果从[起点]沿[方向]发展，在[密度、尺度、过渡、遮挡]上形成变化。
+    使用清晰可见的[颗粒单位]与[表面质感]。
+    配色采用[主色家族、冷暖、明度、饱和度、辅助色、强调色和安静中性色]；
+    与其他新配色方案的主要区别是[明确差异]。
+    观看顺序为[第一焦点]、[第二焦点]、[安静支撑层]。
+    文字模式：[不添加 / 准确原文 / 简体中文自动文案]；准确文字为[字符串]。
+    保持[构图和裁切]。避免[最多四项主要风险]。
 
-- source lock;
-- thesis;
-- protected core;
-- field map;
-- topology;
-- hierarchy;
-- composition.
+不得保留任何未替换的方括号。
 
-Then add one delta per variant:
+## 方案定义
 
-| Variant | Allowed delta |
-|---|---|
-| A | print/ink finish, sharper grouping, editorial contrast |
-| B | tactile finish, narrower tonal palette, softer transitions |
-| C | one scene-justified experimental behavior |
-| D | source-color lock, finish change without hue redesign |
+### 方案 1 — 第一套新配色
 
-Do not rewrite the protected core or effect origin between variants.
+选择最能建立强识别度的艺术方向。它不必固定为印刷风，但必须拥有明确主色家族、颗粒单位与拓扑。
 
-## Negative constraints
+### 方案 2 — 第二套新配色
 
-Use no more than four and target actual risks:
+与方案 1 至少在两个颜色维度上明显分离，并采用不同的主导颗粒语言。不能只是降低饱和度。
 
-- no identity or geometry drift;
-- no uniform full-frame texture;
-- no unrelated literal material objects;
-- no invented or misspelled text;
-- no thick sticker outline;
-- no field that ignores perspective or motion;
-- no merged faces or missing limbs;
-- no effect stronger than the focal anchor.
+### 方案 3 — 第三套新配色
 
-Too many negatives dilute the positive design.
+采用第三个独立艺术方向，可在透明度、碎裂、尺度、遮挡、材料感或色彩结构上更大胆，但仍来自同一场景关系。
 
-## Repair patches
+### 方案 4 — 原图配色
 
-On failure, retain the accepted brief and append one patch.
+保持原图主色家族、冷暖、明度与饱和度关系。允许更换适配的颗粒语言，但不能重新设计成新的颜色身份。
 
-### Identity drift
+## 文字处理
 
-    Restore the source's exact identity-bearing geometry. Reduce marks across [protected detail] and move the main density to [safer field].
+按以下优先级执行：
 
-### Pasted texture
+1. 用户说“不要文字”：四张全部无文字。
+2. 用户提供准确文字：逐字使用，不翻译。
+3. 原图事实文字需要保留：保持原文和事实。
+4. 用户未提供但允许自动创作：可根据留白加入简短简体中文标题或副标题。
+5. 没有真实文字空间：不添加文字。
 
-    Rebuild the field from [origin] along [direction]. Vary density and scale with [scene relation]; remove uniform coverage and hard mask edges.
+不得因为内部提示词是英文而生成英文标题。
 
-### Literal material collage
+## 失败防护
 
-    Translate [material] into abstract [mark family] and surface finish. Remove recognizable unrelated objects.
+每套最多选四项真实风险：
 
-### Weak hierarchy
+- 身份或几何漂移；
+- 全画面统一贴纹理；
+- 无关实物材质幻觉；
+- 英文自动标题或伪文字；
+- 用户准确文字被翻译或拼错；
+- 三套新配色过于接近；
+- 颗粒语言与其他方案重复；
+- 描边过厚；
+- 场景透视、运动或反射被忽略。
 
-    Make [primary] the first read, [field] the second, and quiet [support area]. Reduce competing contrast elsewhere.
+## 修复补丁
 
-### Arbitrary region split
+### 自动文字语言错误
 
-    Remove the semantic partition. Let one continuous [relation] connect [areas] with a graded transition.
+    删除错误外语文字。若用户未指定其他语言，只使用简体中文自动文案；原图和用户准确文字保持原文。
 
-### Bad typography
+### 三套配色过近
 
-    Remove unrequested text, or reproduce only the exact wording “[exact text]” in [real type space].
+    保留源图锁定与场景关系，重新设计本方案的主色家族、冷暖、明度和饱和度，使其与另外两套至少在两个颜色维度上明显分离。
 
-### Family drift
+### 颗粒语言雷同
 
-    Return to the approved master topology and crop. Change only [finish, palette, or one experimental behavior].
+    保留场景命题，替换本方案的主导拓扑、颗粒单位和表面质感；不得只改变颜色。
 
-## Safe fallback
+### 身份漂移
 
-If two repairs fail:
+    恢复源图身份关键结构，减少[受损细节]上的颗粒，把主要密度移至[安全视觉场]。
 
-- use a surface-following, contour-echo, or depth-fade topology;
-- reduce effect intensity;
-- keep the protected core fully source-faithful;
-- remove optional typography;
-- retain original-color logic.
+### 贴图感
 
-Source fidelity outranks spectacle.
+    让颗粒从[起点]沿[方向]发展，并根据[场景关系]改变密度、尺度与过渡；删除统一覆盖和硬蒙版边缘。
+
+### 材质幻觉
+
+    把[材质名称]转译为抽象颗粒与表面质感，删除可识别的无关实物。
+
+## 安全回退
+
+两次修复仍失败时：
+
+- 保留源图、身份、事实和构图；
+- 降低效果强度；
+- 选择更稳定的贴面、轮廓回声或景深递减拓扑；
+- 删除可选文字；
+- 重新确保方案 1–3 的主色家族与颗粒语言明显不同；
+- 方案 4 继续保持原图配色。

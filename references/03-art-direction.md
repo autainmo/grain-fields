@@ -168,87 +168,101 @@ Perforation, stamped metal, rubber, concrete grain, machined cells, or modular p
 
 Never introduce piles of unrelated literal objects simply because a finish name suggests them.
 
-## 6. Palette
+## 6. 配色
 
-Build roles, not a list of colors:
+配色必须写成角色，而不是零散颜色名称：
 
-- dominant field color;
-- support color;
-- anchor color;
-- optional accent;
-- quiet neutral.
+- 主导色族；
+- 冷暖倾向；
+- 明度基调；
+- 饱和度水平；
+- 辅助色；
+- 锚点色；
+- 可选强调色；
+- 安静中性色。
 
-Preserve value hierarchy. Recolored outputs may change hue logic but should retain the same focal order.
+保留原图的焦点明度逻辑，但方案 1–3 必须形成三个明显不同的新颜色身份。
 
-## 7. Typography
+三套新配色的硬条件：
 
-Choose one mode:
+- 主导色族不能全部相同；
+- 任意两套至少在色相家族、冷暖、明度基调、饱和度中的两个维度明显不同；
+- 不能只是同一套颜色的深浅或滤镜变化；
+- 并排缩略观看时，无需标签即可区分。
 
-### Exact source text
+方案 4 锁定原图的主色家族、冷暖、明度与饱和度关系。
 
-Preserve wording, case, punctuation, and factual placement when identity depends on it.
+## 7. 文字与语言
 
-### Headline
+选择一种文字模式：
 
-Use only when the user requests poster treatment or when clear negative space supports it. One concise line is usually enough.
+### 准确原文
 
-### Caption
+原图文字、品牌、数字和用户提供文案保持原文、大小写、标点与事实位置，不擅自翻译。
 
-Small supporting text that explains rather than competes.
+### 自动标题
 
-### Metadata
+只有留白和构图允许时才添加。用户未指定其他语言时，自动标题默认使用简体中文，通常一行即可。
 
-Use only user-provided facts. Never invent dates, coordinates, issue numbers, or credits.
+### 说明文字
 
-### None
+使用简短简体中文，不与主锚点争夺注意力。
 
-The default when text would weaken the image.
+### 元数据
 
-Typography must participate in composition. It is not a required brand stamp.
+只使用用户提供的事实。不得编造日期、地点、坐标、编号或署名。
 
-## 8. Variant family
+### 无文字
 
-The default four outputs share:
+用户说“不要文字”时必须选择；文字会削弱画面时也应选择。
 
-- source geometry;
-- protected core;
-- visual thesis;
-- primary relation;
-- effect topology;
-- focal order.
+面向用户的方案名称、说明和结果标签默认使用简体中文。内部提示词使用英文不构成生成英文标题的理由。
 
-They differ through controlled deltas:
+## 8. 四方案家族
 
-### A — Editorial/graphic
+四套默认输出共享：
 
-Sharper grouping, clearer negative space, assertive but economical contrast, print or ink finish.
+- 源图几何与裁切；
+- 保护核心；
+- 主要场景关系；
+- 视觉命题；
+- 焦点顺序；
+- 准确文字与事实。
 
-### B — Material/tonal
+它们不必共享同一效果拓扑、颗粒单位、表面质感或配色。
 
-Richer surface depth, restrained hue range, tactile finish, softer transitions.
+### 方案 1 — 第一套新方向
 
-### C — Experimental
+建立第一套完整的配色、拓扑、颗粒和质感组合。选择最能强化场景识别的方向。
 
-One bolder change in scale, occlusion, fragmentation, translucency, or color. It must remain justified by the same relation.
+### 方案 2 — 第二套新方向
 
-### D — Original-color logic
+与方案 1 至少在两个颜色维度上明显分离，并使用不同的主导颗粒语言。不得只是变暗、降饱和或轻微换色。
 
-Keep the source's dominant hue relationships and recognizable material cues. Vary finish and mark behavior without recoloring the image into a new identity.
+### 方案 3 — 第三套新方向
 
-Do not create four unrelated concepts.
+建立第三套独立颜色身份和颗粒语言。可在透明度、碎裂、尺度、遮挡或材料感上更大胆，但仍须来自同一场景关系。
 
-## 9. Automatic selection
+### 方案 4 — 原图配色
 
-When no style is named:
+保留原图主要色相、冷暖、明度、饱和度和可识别材质。允许选择最适合场景的颗粒语言，但不能形成新的颜色身份。
 
-1. rank candidate relations;
-2. choose the topology that best expresses the winner;
-3. choose a mark family compatible with topology and source scale;
-4. choose the lightest finish that makes the marks coherent;
-5. set palette and typography last.
+家族一致性来自源图、场景关系和焦点秩序，不来自四张使用同一套效果。
 
-The phrase “automatic style” never means random preset selection.
+## 9. 自动选择
 
-## 10. Legacy names
+用户未指定风格时：
 
-If the user explicitly names an earlier preset or a material family, read references/07-legacy-preset-aliases.md. Translate that name into this functional grammar before prompting.
+1. 排序候选场景关系；
+2. 固定共享源图、保护核心、主要关系和焦点顺序；
+3. 为方案 1–3 选择三个互不等价的配色与颗粒组合；
+4. 为每套独立选择最适配的拓扑、颗粒单位和质感；
+5. 为方案 4 锁定原图配色；
+6. 完成四方案差异矩阵；
+7. 差异不足时重新选择，不能进入生成。
+
+自动选择不是随机抽预设，也不是把同一模板换三个近似颜色。
+
+## 10. 旧预设名称
+
+用户明确指定旧预设或材质家族时，读取 references/07-legacy-preset-aliases.md。先把旧名称翻译为当前功能语法，再编译提示词。
