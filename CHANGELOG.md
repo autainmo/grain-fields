@@ -14,7 +14,8 @@
 - 颗粒区域选择由“面积优先”改为“材质适配、主体安全、自然融合优先”，通常约占整图 1/4–1/2，不为面积强行跨主体扩张。
 - 方案 1–3 的自动配色收束为简洁、克制、耐看的方向，通常控制在 2–4 个核心颜色角色，以中低饱和、中性色和少量强调色为主。
 - 允许局部保留细节色、轻微印刷或材质变化，但禁止为了设计感刻意堆装饰、霓虹、彩虹色或复杂纹理。
-- 同步更新 `SKILL.md`、`00-style-core.md`、`01-scene-analysis.md`、`03-art-direction.md`、`04-generation-compiler.md`、`05-quality-control.md` 与 `agents/openai.yaml`。
+- 中英文 README 恢复颗粒方案输入与完整预设列表，并同步新的自然颗粒、克制配色与仓库结构说明。
+- 同步更新 `SKILL.md`、`references/00-style-core.md`、`references/01-scene-analysis.md`、`references/02-transformation.md`、`references/03-art-direction.md`、`references/04-generation-compiler.md`、`references/05-quality-control.md`、`references/presets-grain.md`、`agents/openai.yaml`、`README.md` 与 `README.en.md`。
 
 ## [1.1.4] - 2026-08-21
 
