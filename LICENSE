@@ -1,0 +1,154 @@
+Grain Fields Personal Non-Commercial License
+Version 1.0 — 2026-08-20
+
+Copyright (c) 2026 autainmo. All rights reserved.
+
+This license applies to the Grain Fields project and to
+all skills, prompts, instructions, workflows, configuration files, scripts,
+examples, documentation, and other materials distributed in this repository
+(collectively, the "Materials"), except for any file or component that is
+expressly identified as being subject to a different license.
+
+1. PERSONAL NON-COMMERCIAL LICENSE
+
+Subject to all terms of this license, the copyright holder grants an individual
+person a limited, worldwide, non-exclusive, non-transferable, non-sublicensable,
+royalty-free license to download, install, run, copy, and modify the
+Materials solely for personal, non-commercial use.
+
+"Personal, non-commercial use" means use by an individual solely for personal
+learning, research, experimentation, or hobby purposes, without payment,
+monetary compensation, commercial advantage, business benefit, or use for or on
+behalf of another person or organization.
+
+For the avoidance of doubt, use by or for a company, employer, client,
+institution, nonprofit organization, government body, or any other legal entity
+is not personal use, even if no fee is charged and no profit is earned.
+
+2. PERMITTED SHARING
+
+You may share an unmodified or modified copy of the Materials only if all of the
+following conditions are met:
+
+  a. the copy is provided entirely free of charge and solely for personal,
+     non-commercial use;
+  b. this license and all copyright, attribution, source, and repository notices
+     are kept intact, complete, and clearly visible;
+  c. autainmo is clearly identified as the original copyright holder and source;
+  d. modified files and derivative materials are clearly and prominently
+     identified as modified, and the date and general nature of the changes are
+     stated; and
+  e. the copy is distributed under these same terms, without additional or
+     conflicting terms.
+
+You may not present a modified copy as the original project or imply that it is
+official, sponsored, approved, or maintained by autainmo.
+
+3. COMMERCIAL, ORGANIZATIONAL, AND PAID USE IS PROHIBITED WITHOUT PERMISSION
+
+Unless you first obtain a separate, express written commercial license from the
+copyright holder, you may not, directly or indirectly:
+
+  a. sell, rent, sublicense, monetize, or charge any fee for the Materials or
+     for access to or use of the Materials;
+  b. use the Materials to provide any paid, sponsored, subscription-based,
+     advertising-supported, or otherwise monetized product or service;
+  c. offer paid generation, commissioned work, custom production, freelance or
+     agency work, consulting, training, courses, support, hosting, software as a
+     service (SaaS), an API, a managed service, or any similar service that uses
+     or is derived from the Materials;
+  d. include, bundle, embed, adapt, or redistribute the Materials in any paid
+     product, application, plugin, platform, membership, content offering, or
+     commercial workflow;
+  e. use the Materials, or outputs produced through use of the Materials, as
+     part of a paid deliverable, commercial transaction, client engagement,
+     revenue-generating activity, promotional campaign, or monetized content;
+  f. use the Materials for or on behalf of a company, employer, client,
+     institution, nonprofit organization, government body, or any other legal
+     entity;
+  g. use the Materials to train, fine-tune, distill, benchmark, evaluate, or
+     improve a model, dataset, prompt library, skill, workflow, or automated
+     system for commercial or organizational purposes;
+  h. remove or alter copyright, attribution, source, repository, or license
+     notices; or
+  i. falsely claim authorship, sponsorship, endorsement, approval, maintenance,
+     or affiliation.
+
+Receiving voluntary donations does not by itself violate this license, provided
+that payment is neither required nor solicited in exchange for access to the
+Materials, use of the Materials, generated outputs, support, or any related
+product or service, and no donor receives preferential access or benefits.
+
+4. COMMERCIAL LICENSING
+
+Any use outside personal, non-commercial use requires prior written permission
+from autainmo. To request a commercial or organizational license, contact the
+copyright holder through the autainmo GitHub account at:
+
+https://github.com/autainmo
+
+or through another contact method expressly designated in this repository.
+Permission is valid only when expressly granted in writing by the copyright
+holder. Silence, repository access, forking, starring, downloading, or failure
+to enforce any term does not constitute permission or a waiver.
+
+5. OWNERSHIP AND RESERVED RIGHTS
+
+The Materials are licensed, not sold. The copyright holder retains all right,
+title, and interest in and to the original Materials and to any portions of the
+Materials incorporated into modified or derivative materials. No patent,
+trademark, trade name, logo, brand, publicity, or other license is granted. All
+rights not expressly granted by this license are reserved.
+
+Nothing in this license restricts rights that cannot lawfully be restricted,
+including any applicable exception or limitation under copyright law.
+
+6. THIRD-PARTY MATERIALS
+
+This license applies only to rights in the Materials held by the copyright
+holder. Third-party software, fonts, images, trademarks, models, services, or
+other components remain subject to their respective licenses and terms. You are
+responsible for identifying and complying with all applicable third-party
+requirements.
+
+7. TERMINATION
+
+Your rights under this license terminate automatically and immediately if you
+violate any term. Upon termination, you must stop using and distributing the
+Materials and delete all copies under your possession or control. Sections
+concerning ownership, prohibited uses, third-party materials, disclaimers,
+liability, and any provisions that by their nature should survive shall survive
+termination.
+
+The copyright holder may reinstate your rights only through express written
+permission.
+
+8. DISCLAIMER OF WARRANTY
+
+THE MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY,
+NON-INFRINGEMENT, OR THAT THE MATERIALS WILL BE ERROR-FREE, SECURE, OR
+UNINTERRUPTED. YOU ASSUME ALL RISK ARISING FROM USE OF THE MATERIALS.
+
+9. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE COPYRIGHT HOLDER SHALL
+NOT BE LIABLE FOR ANY CLAIM, LOSS, DAMAGE, OR OTHER LIABILITY, WHETHER DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR OTHERWISE, WHETHER
+IN CONTRACT, TORT, STRICT LIABILITY, OR OTHERWISE, ARISING FROM OR RELATED TO
+THE MATERIALS, GENERATED OUTPUTS, OR THEIR USE, MODIFICATION, DISTRIBUTION, OR
+INABILITY TO BE USED.
+
+10. SEVERABILITY
+
+If any provision of this license is held invalid or unenforceable, that
+provision shall be enforced to the maximum extent permitted by law, and the
+remaining provisions shall remain in full force and effect.
+
+11. ENTIRE LICENSE; NO WAIVER
+
+This license constitutes the entire license granted for the Materials unless a
+separate written agreement is signed or expressly issued by the copyright
+holder. A failure or delay in enforcing any provision does not waive that
+provision or any other right.

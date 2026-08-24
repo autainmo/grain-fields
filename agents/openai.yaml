@@ -1,0 +1,4 @@
+interface:
+  display_name: "颗粒分域 · Grain Fields"
+  short_description: "Generate four content-aware region-grain image reconstructions"
+  default_prompt: "Use $grain-fields to analyze this image and directly generate four content-partitioned reconstruction variants with one large coarse-grain region in each."
