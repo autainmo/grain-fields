@@ -1,0 +1,53 @@
+name: Grain Fields requested fine-tune
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/grain-fields-finetune.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply exact requested skill patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64, gzip
+          data = '''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'''
+          open('/tmp/grain-fields.patch','wb').write(gzip.decompress(base64.b64decode(data)))
+          PY
+          git apply --check /tmp/grain-fields.patch
+          git apply /tmp/grain-fields.patch
+          python - <<'PY'
+          import subprocess
+          expected = {
+            'SKILL.md':'7dd43820fec6672d353b1f0471628aad91a61b67',
+            'references/00-style-core.md':'dc2aa1282f72f7f599a89d819c3b269d664a5601',
+            'references/01-scene-analysis.md':'20a18fb3d34a3394ae52520a6783a6203ef3a818',
+            'references/02-transformation.md':'4bc35b93de59795a3ec74f91a040b3fe52a53b3a',
+            'references/03-art-direction.md':'21fd6214a783956755e973a1c71fa035d4b8759b',
+            'references/04-generation-compiler.md':'e21d599aadb21ff874e0c2f1c3c716acc845bc9c',
+            'references/05-quality-control.md':'d654d2f77783e05b52edd9b4c31a61ba2005c2f9',
+          }
+          for path, want in expected.items():
+              got = subprocess.check_output(['git','hash-object',path], text=True).strip()
+              if got != want:
+                  raise SystemExit(f'{path}: {got} != {want}')
+          PY
+          rm -f .github/workflows/grain-fields-finetune.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'autainmo'
+          git config user.email '127984497+autainmo@users.noreply.github.com'
+          git add -A
+          git commit -m 'refine: strengthen grain visibility and subject preservation'
+          git push origin HEAD:main
