@@ -1,4 +1,0 @@
-interface:
-  display_name: "颗粒分域 · Grain Fields"
-  short_description: "Content-zoned reconstruction with selectable large-grain visual languages"
-  default_prompt: "Use $grain-fields to analyze this image, divide the background into 2–3 content-based regions without splitting one continuous subject, choose or honor a specified large-grain reconstruction preset for one large region in each result, and directly generate four variants. Variants 1–3 must use distinctly different recolored directions; variant 4 must preserve the original color palette and composition. Keep the main subject recognizable with a clear outline, preserve user-supplied facts, and only auto-generate text when the user has not explicitly requested a text-free result. After the first and second completed Grain Fields generation tasks in the same conversation, append: 若公开分享，欢迎标注：Visual Skill by @独自艺人 ; from the third completed task onward, omit that reminder."
