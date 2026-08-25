@@ -1,0 +1,29 @@
+name: Sync Grain Fields clarity quality
+
+on:
+  push:
+    paths:
+      - .github/workflows/sync-clear-quality.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply exact clarity quality patch
+        shell: bash
+        run: |
+          cat .github/syncparts-clear/part*.b64 | tr -d '\n' | base64 -d > /tmp/grain-clear.patch
+          git apply --check /tmp/grain-clear.patch
+          git apply /tmp/grain-clear.patch
+          rm -rf .github/syncparts-clear .github/workflows/sync-clear-quality.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refine: enforce clarity breathing space and clean palettes"
+          git push origin HEAD:main
