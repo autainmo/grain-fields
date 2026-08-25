@@ -27,3 +27,4 @@ jobs:
           git add -A
           git commit -m "refine: randomize distinct palettes and text types"
           git push origin HEAD:main
+# rerun after exact patch-chunk verification
